@@ -1,10 +1,13 @@
 PODS:
   - STRegex (0.2.6)
+  - SwiftDate (2.0.2)
 
 DEPENDENCIES:
   - STRegex
+  - SwiftDate (~> 2.0)
 
 SPEC CHECKSUMS:
   STRegex: 42baaef0406dd90bfa32e19c202a0c89075809b4
+  SwiftDate: b4f4d0962afe48365ad2800c9850a6626deb9359
 
 COCOAPODS: 0.39.0

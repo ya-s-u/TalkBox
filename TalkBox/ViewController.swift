@@ -1,5 +1,6 @@
 import UIKit
 import Regex
+import SwiftDate
 
 class ViewController: UIViewController {
 
@@ -12,12 +13,18 @@ class ViewController: UIViewController {
                 
                 var idx = 1
                 file.enumerateLines { (line, stop) -> () in
-                    
-                    if let title = Regex("\\[LINE\\] (.+)とのトーク履歴").match(line)?.captures[0] {
-                        print("\(title)")
+                    if idx == 1 {
+                        if let title = Regex("^\\[LINE\\] (.+)とのトーク履歴").match(line)?.captures[0] {
+                            print("title: \(title)")
+                        }
                     }
+                    
+                    else if Regex("^\\d{4}\\/\\d{2}\\/\\d{2}(.{1})").matches(line) {
+                        let date = (line as NSString).substringToIndex(10).toDate(DateFormat.Custom("yyyy/MM/dd"))
+                        print(date!)
+                    }
+                    
                     idx++
-//                    print("\(idx++) : \(line)")
                 }
             } catch {
                 // error handling
