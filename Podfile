@@ -3,6 +3,6 @@
 use_frameworks!
 
 target 'TalkBox' do
-
+  pod 'STRegex'
 end
 

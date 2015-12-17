@@ -57,3 +57,7 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
+
+TalkBox/log1.txt
+TalkBox/log2.txt
+TalkBox/log3.txt

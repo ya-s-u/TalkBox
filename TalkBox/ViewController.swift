@@ -1,25 +1,30 @@
-//
-//  ViewController.swift
-//  TalkBox
-//
-//  Created by 後藤誉昌 on 2015/12/17.
-//  Copyright © 2015年 後藤誉昌. All rights reserved.
-//
-
 import UIKit
+import Regex
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+        
+        if let filePath = NSBundle.mainBundle().pathForResource("log1", ofType: "txt") {
+            do {
+                let file = try NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding) as String
+                
+                var idx = 1
+                file.enumerateLines { (line, stop) -> () in
+                    
+                    if let title = Regex("\\[LINE\\] (.+)とのトーク履歴").match(line)?.captures[0] {
+                        print("\(title)")
+                    }
+                    idx++
+//                    print("\(idx++) : \(line)")
+                }
+            } catch {
+                // error handling
+            }
+        }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
 
 }
 

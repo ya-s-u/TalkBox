@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B90611B5608D095097FA153 /* Pods_TalkBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE214EA711175A4AFB5B839 /* Pods_TalkBox.framework */; };
 		5A5336CF1C2242010008BBF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5336CE1C2242010008BBF4 /* AppDelegate.swift */; };
 		5A5336D11C2242010008BBF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5336D01C2242010008BBF4 /* ViewController.swift */; };
 		5A5336D41C2242010008BBF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D21C2242010008BBF4 /* Main.storyboard */; };
 		5A5336D61C2242010008BBF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D51C2242010008BBF4 /* Assets.xcassets */; };
 		5A5336D91C2242010008BBF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D71C2242010008BBF4 /* LaunchScreen.storyboard */; };
+		5A5336E41C2245520008BBF4 /* log3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336E11C2245520008BBF4 /* log3.txt */; };
+		5A5336E51C2245520008BBF4 /* log2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336E21C2245520008BBF4 /* log2.txt */; };
+		5A5336E61C2245520008BBF4 /* log1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336E31C2245520008BBF4 /* log1.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EE214EA711175A4AFB5B839 /* Pods_TalkBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TalkBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41BC03E9E5596E5F87B019FA /* Pods-TalkBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TalkBox/Pods-TalkBox.debug.xcconfig"; sourceTree = "<group>"; };
 		5A5336CB1C2242010008BBF4 /* TalkBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5336CE1C2242010008BBF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A5336D01C2242010008BBF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,10 @@
 		5A5336D51C2242010008BBF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A5336D81C2242010008BBF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A5336DA1C2242010008BBF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A5336E11C2245520008BBF4 /* log3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = log3.txt; sourceTree = "<group>"; };
+		5A5336E21C2245520008BBF4 /* log2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = log2.txt; sourceTree = "<group>"; };
+		5A5336E31C2245520008BBF4 /* log1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = log1.txt; sourceTree = "<group>"; };
+		B0AE4E99B18D889C568A00D9 /* Pods-TalkBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-TalkBox/Pods-TalkBox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B90611B5608D095097FA153 /* Pods_TalkBox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03F6E0C8A52F6863761708FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EE214EA711175A4AFB5B839 /* Pods_TalkBox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5A5336C21C2242010008BBF4 = {
 			isa = PBXGroup;
 			children = (
 				5A5336CD1C2242010008BBF4 /* TalkBox */,
 				5A5336CC1C2242010008BBF4 /* Products */,
+				9055640C737FB080E5B3659E /* Pods */,
+				03F6E0C8A52F6863761708FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +75,7 @@
 		5A5336CD1C2242010008BBF4 /* TalkBox */ = {
 			isa = PBXGroup;
 			children = (
+				5A5336E01C2245340008BBF4 /* data */,
 				5A5336CE1C2242010008BBF4 /* AppDelegate.swift */,
 				5A5336D01C2242010008BBF4 /* ViewController.swift */,
 				5A5336D21C2242010008BBF4 /* Main.storyboard */,
@@ -64,6 +86,25 @@
 			path = TalkBox;
 			sourceTree = "<group>";
 		};
+		5A5336E01C2245340008BBF4 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				5A5336E11C2245520008BBF4 /* log3.txt */,
+				5A5336E21C2245520008BBF4 /* log2.txt */,
+				5A5336E31C2245520008BBF4 /* log1.txt */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		9055640C737FB080E5B3659E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41BC03E9E5596E5F87B019FA /* Pods-TalkBox.debug.xcconfig */,
+				B0AE4E99B18D889C568A00D9 /* Pods-TalkBox.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +112,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A5336DD1C2242010008BBF4 /* Build configuration list for PBXNativeTarget "TalkBox" */;
 			buildPhases = (
+				E18D17B03E22B3F5EDBD4B4F /* Check Pods Manifest.lock */,
 				5A5336C71C2242010008BBF4 /* Sources */,
 				5A5336C81C2242010008BBF4 /* Frameworks */,
 				5A5336C91C2242010008BBF4 /* Resources */,
+				516D55580D559EF66EE28C48 /* Embed Pods Frameworks */,
+				53616D109D8A426AEE3A14AE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,12 +167,63 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A5336D91C2242010008BBF4 /* LaunchScreen.storyboard in Resources */,
+				5A5336E61C2245520008BBF4 /* log1.txt in Resources */,
 				5A5336D61C2242010008BBF4 /* Assets.xcassets in Resources */,
 				5A5336D41C2242010008BBF4 /* Main.storyboard in Resources */,
+				5A5336E41C2245520008BBF4 /* log3.txt in Resources */,
+				5A5336E51C2245520008BBF4 /* log2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		516D55580D559EF66EE28C48 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TalkBox/Pods-TalkBox-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		53616D109D8A426AEE3A14AE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TalkBox/Pods-TalkBox-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E18D17B03E22B3F5EDBD4B4F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5A5336C71C2242010008BBF4 /* Sources */ = {
@@ -245,9 +340,11 @@
 		};
 		5A5336DE1C2242010008BBF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41BC03E9E5596E5F87B019FA /* Pods-TalkBox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TalkBox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasu.TalkBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -256,9 +353,11 @@
 		};
 		5A5336DF1C2242010008BBF4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0AE4E99B18D889C568A00D9 /* Pods-TalkBox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TalkBox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasu.TalkBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -284,6 +383,7 @@
 				5A5336DF1C2242010008BBF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
