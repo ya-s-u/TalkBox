@@ -8,19 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		4B90611B5608D095097FA153 /* Pods_TalkBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE214EA711175A4AFB5B839 /* Pods_TalkBox.framework */; };
+		5A1383701C4153E20005223F /* group.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A13836F1C4153E20005223F /* group.txt */; };
+		5A1383721C4153F60005223F /* direct.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A1383711C4153F60005223F /* direct.txt */; };
+		5A1383751C4332330005223F /* TalkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383741C4332330005223F /* TalkParser.swift */; };
+		5A1383781C4333000005223F /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383771C4333000005223F /* Talk.swift */; };
+		5A13837A1C43330E0005223F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383791C43330E0005223F /* Message.swift */; };
 		5A5336CF1C2242010008BBF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5336CE1C2242010008BBF4 /* AppDelegate.swift */; };
 		5A5336D11C2242010008BBF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5336D01C2242010008BBF4 /* ViewController.swift */; };
 		5A5336D41C2242010008BBF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D21C2242010008BBF4 /* Main.storyboard */; };
 		5A5336D61C2242010008BBF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D51C2242010008BBF4 /* Assets.xcassets */; };
 		5A5336D91C2242010008BBF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D71C2242010008BBF4 /* LaunchScreen.storyboard */; };
-		5A5336E41C2245520008BBF4 /* log3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336E11C2245520008BBF4 /* log3.txt */; };
-		5A5336E51C2245520008BBF4 /* log2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336E21C2245520008BBF4 /* log2.txt */; };
-		5A5336E61C2245520008BBF4 /* log1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336E31C2245520008BBF4 /* log1.txt */; };
+		5A5336EC1C2257910008BBF4 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5336EB1C2257910008BBF4 /* String+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0EE214EA711175A4AFB5B839 /* Pods_TalkBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TalkBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BC03E9E5596E5F87B019FA /* Pods-TalkBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TalkBox/Pods-TalkBox.debug.xcconfig"; sourceTree = "<group>"; };
+		5A13836F1C4153E20005223F /* group.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = group.txt; sourceTree = "<group>"; };
+		5A1383711C4153F60005223F /* direct.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = direct.txt; sourceTree = "<group>"; };
+		5A1383741C4332330005223F /* TalkParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkParser.swift; sourceTree = "<group>"; };
+		5A1383771C4333000005223F /* Talk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Talk.swift; sourceTree = "<group>"; };
+		5A1383791C43330E0005223F /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		5A5336CB1C2242010008BBF4 /* TalkBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5336CE1C2242010008BBF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A5336D01C2242010008BBF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,9 +36,7 @@
 		5A5336D51C2242010008BBF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A5336D81C2242010008BBF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A5336DA1C2242010008BBF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5A5336E11C2245520008BBF4 /* log3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = log3.txt; sourceTree = "<group>"; };
-		5A5336E21C2245520008BBF4 /* log2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = log2.txt; sourceTree = "<group>"; };
-		5A5336E31C2245520008BBF4 /* log1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = log1.txt; sourceTree = "<group>"; };
+		5A5336EB1C2257910008BBF4 /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		B0AE4E99B18D889C568A00D9 /* Pods-TalkBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-TalkBox/Pods-TalkBox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +60,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5A1383731C4330F50005223F /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				5A1383741C4332330005223F /* TalkParser.swift */,
+			);
+			name = Utilites;
+			sourceTree = "<group>";
+		};
+		5A1383761C4332F20005223F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5A1383771C4333000005223F /* Talk.swift */,
+				5A1383791C43330E0005223F /* Message.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		5A5336C21C2242010008BBF4 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +98,9 @@
 		5A5336CD1C2242010008BBF4 /* TalkBox */ = {
 			isa = PBXGroup;
 			children = (
+				5A5336EA1C22577D0008BBF4 /* Extensions */,
+				5A1383731C4330F50005223F /* Utilites */,
+				5A1383761C4332F20005223F /* Models */,
 				5A5336E01C2245340008BBF4 /* data */,
 				5A5336CE1C2242010008BBF4 /* AppDelegate.swift */,
 				5A5336D01C2242010008BBF4 /* ViewController.swift */,
@@ -89,11 +115,18 @@
 		5A5336E01C2245340008BBF4 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				5A5336E11C2245520008BBF4 /* log3.txt */,
-				5A5336E21C2245520008BBF4 /* log2.txt */,
-				5A5336E31C2245520008BBF4 /* log1.txt */,
+				5A1383711C4153F60005223F /* direct.txt */,
+				5A13836F1C4153E20005223F /* group.txt */,
 			);
 			name = data;
+			sourceTree = "<group>";
+		};
+		5A5336EA1C22577D0008BBF4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5A5336EB1C2257910008BBF4 /* String+.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		9055640C737FB080E5B3659E /* Pods */ = {
@@ -167,11 +200,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A5336D91C2242010008BBF4 /* LaunchScreen.storyboard in Resources */,
-				5A5336E61C2245520008BBF4 /* log1.txt in Resources */,
+				5A1383701C4153E20005223F /* group.txt in Resources */,
 				5A5336D61C2242010008BBF4 /* Assets.xcassets in Resources */,
+				5A1383721C4153F60005223F /* direct.txt in Resources */,
 				5A5336D41C2242010008BBF4 /* Main.storyboard in Resources */,
-				5A5336E41C2245520008BBF4 /* log3.txt in Resources */,
-				5A5336E51C2245520008BBF4 /* log2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,8 +262,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1383751C4332330005223F /* TalkParser.swift in Sources */,
 				5A5336D11C2242010008BBF4 /* ViewController.swift in Sources */,
+				5A5336EC1C2257910008BBF4 /* String+.swift in Sources */,
 				5A5336CF1C2242010008BBF4 /* AppDelegate.swift in Sources */,
+				5A1383781C4333000005223F /* Talk.swift in Sources */,
+				5A13837A1C43330E0005223F /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
