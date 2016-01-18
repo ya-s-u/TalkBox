@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4B90611B5608D095097FA153 /* Pods_TalkBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE214EA711175A4AFB5B839 /* Pods_TalkBox.framework */; };
-		5A1383701C4153E20005223F /* group.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A13836F1C4153E20005223F /* group.txt */; };
-		5A1383721C4153F60005223F /* direct.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A1383711C4153F60005223F /* direct.txt */; };
 		5A1383751C4332330005223F /* TalkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383741C4332330005223F /* TalkParser.swift */; };
 		5A1383781C4333000005223F /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383771C4333000005223F /* Talk.swift */; };
 		5A13837A1C43330E0005223F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383791C43330E0005223F /* Message.swift */; };
@@ -24,8 +22,6 @@
 /* Begin PBXFileReference section */
 		0EE214EA711175A4AFB5B839 /* Pods_TalkBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TalkBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BC03E9E5596E5F87B019FA /* Pods-TalkBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TalkBox/Pods-TalkBox.debug.xcconfig"; sourceTree = "<group>"; };
-		5A13836F1C4153E20005223F /* group.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = group.txt; sourceTree = "<group>"; };
-		5A1383711C4153F60005223F /* direct.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = direct.txt; sourceTree = "<group>"; };
 		5A1383741C4332330005223F /* TalkParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkParser.swift; sourceTree = "<group>"; };
 		5A1383771C4333000005223F /* Talk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Talk.swift; sourceTree = "<group>"; };
 		5A1383791C43330E0005223F /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -60,12 +56,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5A1383731C4330F50005223F /* Utilites */ = {
+		5A1383731C4330F50005223F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				5A1383741C4332330005223F /* TalkParser.swift */,
 			);
-			name = Utilites;
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		5A1383761C4332F20005223F /* Models */ = {
@@ -75,6 +71,20 @@
 				5A1383791C43330E0005223F /* Message.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		5A3364B81C4CD4FF00A0B24F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5A3364B91C4CD51C00A0B24F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		5A5336C21C2242010008BBF4 = {
@@ -99,9 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				5A5336EA1C22577D0008BBF4 /* Extensions */,
-				5A1383731C4330F50005223F /* Utilites */,
+				5A1383731C4330F50005223F /* Utilities */,
 				5A1383761C4332F20005223F /* Models */,
-				5A5336E01C2245340008BBF4 /* data */,
+				5A3364B81C4CD4FF00A0B24F /* Controllers */,
+				5A3364B91C4CD51C00A0B24F /* Views */,
 				5A5336CE1C2242010008BBF4 /* AppDelegate.swift */,
 				5A5336D01C2242010008BBF4 /* ViewController.swift */,
 				5A5336D21C2242010008BBF4 /* Main.storyboard */,
@@ -110,15 +121,6 @@
 				5A5336DA1C2242010008BBF4 /* Info.plist */,
 			);
 			path = TalkBox;
-			sourceTree = "<group>";
-		};
-		5A5336E01C2245340008BBF4 /* data */ = {
-			isa = PBXGroup;
-			children = (
-				5A1383711C4153F60005223F /* direct.txt */,
-				5A13836F1C4153E20005223F /* group.txt */,
-			);
-			name = data;
 			sourceTree = "<group>";
 		};
 		5A5336EA1C22577D0008BBF4 /* Extensions */ = {
@@ -201,9 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A5336D91C2242010008BBF4 /* LaunchScreen.storyboard in Resources */,
-				5A1383701C4153E20005223F /* group.txt in Resources */,
 				5A5336D61C2242010008BBF4 /* Assets.xcassets in Resources */,
-				5A1383721C4153F60005223F /* direct.txt in Resources */,
 				5A5336D41C2242010008BBF4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
