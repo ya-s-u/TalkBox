@@ -14,7 +14,17 @@ class TalkParser {
             var multipleLine = false
             var multipleMessage = Message()
             
+            var i = 0
+            let size = file.lines.count
+            var progress = 0
+            
             for (_, line) in file.lines.enumerate() {
+                // progress
+                let current = Int(Float(i++)/Float(size)*100)
+                if current != progress {
+                    progress = current
+                    print("\(progress)%")
+                }
                 
                 // start multiple lines
                 if let matches = Regex("^(\\d{2}:\\d{2})\\t(.+)\\t\"(.+)").match(line)?.captures {
