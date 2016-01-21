@@ -6,6 +6,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        if isIcloudAvailable() == false {
+            print("iCloud is not available")
+        } else {
+            print("You have iCloud!")
+        }
+        
         return true
     }
     
@@ -18,6 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
+    }
+    
+    func isIcloudAvailable() -> Bool {
+        if let _ = NSFileManager.defaultManager().ubiquityIdentityToken {
+            return true
+        } else {
+            return false
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

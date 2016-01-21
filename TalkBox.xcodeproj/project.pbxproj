@@ -25,6 +25,7 @@
 		5A1383741C4332330005223F /* TalkParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkParser.swift; sourceTree = "<group>"; };
 		5A1383771C4333000005223F /* Talk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Talk.swift; sourceTree = "<group>"; };
 		5A1383791C43330E0005223F /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		5A3364BA1C51495700A0B24F /* TalkBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TalkBox.entitlements; sourceTree = "<group>"; };
 		5A5336CB1C2242010008BBF4 /* TalkBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5336CE1C2242010008BBF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A5336D01C2242010008BBF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 		5A5336CD1C2242010008BBF4 /* TalkBox */ = {
 			isa = PBXGroup;
 			children = (
+				5A3364BA1C51495700A0B24F /* TalkBox.entitlements */,
 				5A5336EA1C22577D0008BBF4 /* Extensions */,
 				5A1383731C4330F50005223F /* Utilities */,
 				5A1383761C4332F20005223F /* Models */,
@@ -176,6 +178,11 @@
 					5A5336CA1C2242010008BBF4 = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = UAU496JZAK;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -380,6 +387,7 @@
 			baseConfigurationReference = 41BC03E9E5596E5F87B019FA /* Pods-TalkBox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TalkBox/TalkBox.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TalkBox/Info.plist;
@@ -396,6 +404,7 @@
 			baseConfigurationReference = B0AE4E99B18D889C568A00D9 /* Pods-TalkBox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TalkBox/TalkBox.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TalkBox/Info.plist;
