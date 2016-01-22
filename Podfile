@@ -5,5 +5,6 @@ use_frameworks!
 target 'TalkBox' do
   pod 'STRegex'
   pod 'SwiftDate', '~> 2.0'
+  pod 'RealmSwift'
 end
 

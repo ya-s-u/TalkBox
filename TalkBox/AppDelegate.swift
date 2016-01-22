@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         if sourceApplication == "jp.naver.line" {
-            let talk = TalkParser.parse(url)
-            print(talk.title)
+//            let talk = TalkParser.parse(url)
+//            print(talk.title)
         } else {
             print("applications that do not support")
         }

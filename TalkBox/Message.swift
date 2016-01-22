@@ -1,7 +1,8 @@
-import Foundation
+import RealmSwift
 
-struct Message {
-    var datetime: NSDate = NSDate()
-    var user: String = ""
-    var text: String = ""
+class Message: Object {
+    dynamic var user = ""
+    dynamic var text = ""
+    dynamic var favorited = false
+    dynamic var created = NSDate()
 }
