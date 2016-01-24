@@ -55,7 +55,7 @@ class TalkParser {
             if current != progress {
                 progress = current
                 self.delegate?.didChangeProgress!(progress)
-                print("\(progress)%")
+//                print("\(progress)%")
             }
             
             // start multiple lines

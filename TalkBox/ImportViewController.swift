@@ -9,6 +9,8 @@ class ImportViewController : UIViewController, TalkParserDelegate {
         parser = TalkParser(path: self.path)
         print(parser.fileName())
         
+        parser.delegate = self
+        
         progress = ProgressView(frame: self.view.frame)
         progress.hidden = true
         self.view.addSubview(progress)
@@ -32,11 +34,14 @@ class ImportViewController : UIViewController, TalkParserDelegate {
     }
     
     func didChangeProgress(percentage: Int) {
-        progress.updateProgress(percentage)
-        print(percentage);
-        
-//        if percentage >= 99 {
-//            progress.hidden = true
-//        }
+//        progress.updateProgress(percentage)
+        //        progress.progress.text = "\(percentage)%"
+//        let aaa = progress.subviews.first as! ProgressView
+//        aaa.progress.text = "\(percentage)%"
+
+        print(percentage)
+        if percentage >= 99 {
+            progress.hidden = true
+        }
     }
 }

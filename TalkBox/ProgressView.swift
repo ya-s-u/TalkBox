@@ -1,15 +1,21 @@
 import UIKit
 
 class ProgressView: UIView {
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var progress: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let view = NSBundle.mainBundle().loadNibNamed("Progress", owner: self, options: nil).first as! ProgressView
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let nib = UINib(nibName: "Progress", bundle: bundle)
+        let view = nib.instantiateWithOwner(self, options: nil).first as! UIView
         view.frame = frame
-        view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         addSubview(view)
+        
+        
+//        let view = NSBundle.mainBundle().loadNibNamed("Progress", owner: self, options: nil).first as! ProgressView
+//        view.frame = frame
+//        view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+//        addSubview(view)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -21,13 +27,18 @@ class ProgressView: UIView {
     }
     
     override func awakeFromNib() {
-        indicator.activityIndicatorViewStyle = .WhiteLarge
-        indicator.startAnimating()
     }
     
     func updateProgress(percentage: Int) {
-        print(percentage)
-        progress.text = "\(percentage)%"
+//        let aaa = self.subviews.first as! ProgressView
+//        aaa.progress.text = "\(percentage)%"
+//        self.setNeedsDisplay()
+//        self.subviews.first?.setNeedsDisplay()
+//        aaa.setNeedsDisplay()
+//        aaa.progress.setNeedsDisplay()
+        
+//        progress.text? = "100000"
+//        progress.text = "\(percentage)%"
     }
 }
  

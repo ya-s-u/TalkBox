@@ -11,8 +11,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Iih-gt-pZ4">
-                    <rect key="frame" x="270" y="270" width="60" height="60"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Iih-gt-pZ4">
+                    <rect key="frame" x="271" y="270" width="60" height="60"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="PuR-X3-7lY"/>
@@ -52,8 +52,7 @@
                 </mask>
             </variation>
             <connections>
-                <outlet property="indicator" destination="Iih-gt-pZ4" id="nqD-xg-IRq"/>
-                <outlet property="progress" destination="e5j-Ne-By7" id="nME-gB-vXd"/>
+                <outlet property="progress" destination="e5j-Ne-By7" id="nSI-Gb-xcB"/>
             </connections>
         </view>
     </objects>
