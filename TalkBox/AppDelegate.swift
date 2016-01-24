@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -6,32 +7,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        if isIcloudAvailable() == false {
-            print("iCloud is not available")
-        } else {
+        if iCloud.available() {
             print("You have iCloud!")
+        } else {
+            print("iCloud is not available")
         }
+        
+        let realm = try! Realm()
+        print(realm.path)
         
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         if sourceApplication == "jp.naver.line" {
-//            let talk = TalkParser.parse(url)
-//            print(talk.title)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let destination = storyboard.instantiateViewControllerWithIdentifier("Import") as! ImportViewController
+            destination.path = url
+            self.window!.rootViewController!.presentViewController(destination, animated: true, completion: nil)
         } else {
             print("applications that do not support")
         }
-        
+
         return true
-    }
-    
-    func isIcloudAvailable() -> Bool {
-        if let _ = NSFileManager.defaultManager().ubiquityIdentityToken {
-            return true
-        } else {
-            return false
-        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

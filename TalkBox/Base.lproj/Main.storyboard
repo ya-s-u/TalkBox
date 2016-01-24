@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--トーク-->
         <scene sceneID="xhc-He-xtl">
             <objects>
                 <tableViewController id="qCL-5B-LAi" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                             <outlet property="delegate" destination="qCL-5B-LAi" id="Vgh-0p-sCu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="B6d-YV-B8h"/>
+                    <navigationItem key="navigationItem" title="トーク" id="B6d-YV-B8h"/>
                     <connections>
                         <segue destination="4RX-Fp-eVa" kind="show" id="AhD-Kj-Jjf"/>
                     </connections>
@@ -89,6 +89,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="voE-C0-SAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="423" y="995"/>
+        </scene>
+        <!--Import View Controller-->
+        <scene sceneID="nmM-yZ-DMJ">
+            <objects>
+                <viewController storyboardIdentifier="Import" id="Y4d-en-vdn" customClass="ImportViewController" customModule="TalkBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rzt-aV-eQe"/>
+                        <viewControllerLayoutGuide type="bottom" id="ccB-dz-xfK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2wM-pf-Pn6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFH-Mp-D7Z">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="E7O-ys-5lc"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="トークのインポート" id="35F-XS-TFW">
+                                        <barButtonItem key="leftBarButtonItem" title="閉じる" id="Dlc-Av-OwL">
+                                            <connections>
+                                                <action selector="close:" destination="Y4d-en-vdn" id="9ZF-6T-IwF"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dzz-nR-rxh">
+                                <rect key="frame" x="20" y="86" width="105" height="30"/>
+                                <animations/>
+                                <state key="normal" title="インポートする"/>
+                                <connections>
+                                    <action selector="action:" destination="Y4d-en-vdn" eventType="touchUpInside" id="JMO-ni-EHb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nFH-Mp-D7Z" firstAttribute="top" secondItem="Rzt-aV-eQe" secondAttribute="bottom" id="0SX-Gb-3N9"/>
+                            <constraint firstAttribute="trailing" secondItem="nFH-Mp-D7Z" secondAttribute="trailing" id="bau-5y-csd"/>
+                            <constraint firstItem="nFH-Mp-D7Z" firstAttribute="top" secondItem="2wM-pf-Pn6" secondAttribute="top" id="cFa-Df-MiO"/>
+                            <constraint firstItem="nFH-Mp-D7Z" firstAttribute="leading" secondItem="2wM-pf-Pn6" secondAttribute="leading" id="hq3-9u-cFj"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0SX-Gb-3N9"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LxY-LL-n5k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="418" y="1726"/>
         </scene>
     </scenes>
 </document>

@@ -17,6 +17,10 @@
 		5A5336D61C2242010008BBF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D51C2242010008BBF4 /* Assets.xcassets */; };
 		5A5336D91C2242010008BBF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D71C2242010008BBF4 /* LaunchScreen.storyboard */; };
 		5A5336EC1C2257910008BBF4 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5336EB1C2257910008BBF4 /* String+.swift */; };
+		5ABC2EF51C53C4AD0080B303 /* iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF41C53C4AD0080B303 /* iCloud.swift */; };
+		5ABC2EF71C53E19D0080B303 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */; };
+		5ABC2EF91C53F3970080B303 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF81C53F3970080B303 /* ProgressView.swift */; };
+		5ABC2EFB1C53F4FA0080B303 /* Progress.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC2EFA1C53F4FA0080B303 /* Progress.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		5A5336D81C2242010008BBF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A5336DA1C2242010008BBF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A5336EB1C2257910008BBF4 /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		5ABC2EF41C53C4AD0080B303 /* iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloud.swift; sourceTree = "<group>"; };
+		5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
+		5ABC2EF81C53F3970080B303 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		5ABC2EFA1C53F4FA0080B303 /* Progress.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Progress.xib; sourceTree = "<group>"; };
 		B0AE4E99B18D889C568A00D9 /* Pods-TalkBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-TalkBox/Pods-TalkBox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				5A1383741C4332330005223F /* TalkParser.swift */,
+				5ABC2EF41C53C4AD0080B303 /* iCloud.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -74,16 +83,19 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		5A3364B81C4CD4FF00A0B24F /* Controllers */ = {
+		5A3364B81C4CD4FF00A0B24F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */,
 			);
-			name = Controllers;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		5A3364B91C4CD51C00A0B24F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5ABC2EF81C53F3970080B303 /* ProgressView.swift */,
+				5ABC2EFA1C53F4FA0080B303 /* Progress.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -113,7 +125,7 @@
 				5A5336EA1C22577D0008BBF4 /* Extensions */,
 				5A1383731C4330F50005223F /* Utilities */,
 				5A1383761C4332F20005223F /* Models */,
-				5A3364B81C4CD4FF00A0B24F /* Controllers */,
+				5A3364B81C4CD4FF00A0B24F /* ViewControllers */,
 				5A3364B91C4CD51C00A0B24F /* Views */,
 				5A5336CE1C2242010008BBF4 /* AppDelegate.swift */,
 				5A5336D01C2242010008BBF4 /* ViewController.swift */,
@@ -212,6 +224,7 @@
 				5A5336D91C2242010008BBF4 /* LaunchScreen.storyboard in Resources */,
 				5A5336D61C2242010008BBF4 /* Assets.xcassets in Resources */,
 				5A5336D41C2242010008BBF4 /* Main.storyboard in Resources */,
+				5ABC2EFB1C53F4FA0080B303 /* Progress.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,11 +284,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A1383751C4332330005223F /* TalkParser.swift in Sources */,
+				5ABC2EF51C53C4AD0080B303 /* iCloud.swift in Sources */,
 				5A5336D11C2242010008BBF4 /* ViewController.swift in Sources */,
 				5A5336EC1C2257910008BBF4 /* String+.swift in Sources */,
+				5ABC2EF91C53F3970080B303 /* ProgressView.swift in Sources */,
 				5A5336CF1C2242010008BBF4 /* AppDelegate.swift in Sources */,
 				5A1383781C4333000005223F /* Talk.swift in Sources */,
 				5A13837A1C43330E0005223F /* Message.swift in Sources */,
+				5ABC2EF71C53E19D0080B303 /* ImportViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
