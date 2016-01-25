@@ -5,17 +5,10 @@ class ProgressView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let nib = UINib(nibName: "Progress", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil).first as! UIView
+        let view = NSBundle.mainBundle().loadNibNamed("Progress", owner: self, options: nil).first as! ProgressView
         view.frame = frame
+        view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         addSubview(view)
-        
-        
-//        let view = NSBundle.mainBundle().loadNibNamed("Progress", owner: self, options: nil).first as! ProgressView
-//        view.frame = frame
-//        view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
-//        addSubview(view)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -30,15 +23,11 @@ class ProgressView: UIView {
     }
     
     func updateProgress(percentage: Int) {
-//        let aaa = self.subviews.first as! ProgressView
-//        aaa.progress.text = "\(percentage)%"
-//        self.setNeedsDisplay()
-//        self.subviews.first?.setNeedsDisplay()
-//        aaa.setNeedsDisplay()
-//        aaa.progress.setNeedsDisplay()
-        
-//        progress.text? = "100000"
-//        progress.text = "\(percentage)%"
+        dispatch_async(dispatch_get_main_queue(), {
+            let progressView = self.subviews.first as! ProgressView
+            progressView.progress.text = "\(percentage)%"
+            self.setNeedsDisplay()
+        })
     }
 }
  

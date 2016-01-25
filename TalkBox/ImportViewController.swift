@@ -3,7 +3,7 @@ import UIKit
 class ImportViewController : UIViewController, TalkParserDelegate {
     var path = NSURL()
     var parser: TalkParser!
-    var progress: ProgressView!
+    var progressView: ProgressView!
     
     override func viewDidLoad() {
         parser = TalkParser(path: self.path)
@@ -11,9 +11,9 @@ class ImportViewController : UIViewController, TalkParserDelegate {
         
         parser.delegate = self
         
-        progress = ProgressView(frame: self.view.frame)
-        progress.hidden = true
-        self.view.addSubview(progress)
+        progressView = ProgressView(frame: self.view.frame)
+        progressView.hidden = true
+        self.view.addSubview(progressView)
     }
     
     @IBAction func close(sender: AnyObject) {
@@ -21,27 +21,17 @@ class ImportViewController : UIViewController, TalkParserDelegate {
     }
     
     @IBAction func action(sender: AnyObject) {
-        progress.hidden = false
+        progressView.hidden = false
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-            let _ = self.parser.parse()
+            self.parser.parse()
             dispatch_async(dispatch_get_main_queue(), {
-                print("finish")
+                self.progressView.hidden = true
             })
         })
-        
-//        let _ = parser.parse()
     }
     
     func didChangeProgress(percentage: Int) {
-//        progress.updateProgress(percentage)
-        //        progress.progress.text = "\(percentage)%"
-//        let aaa = progress.subviews.first as! ProgressView
-//        aaa.progress.text = "\(percentage)%"
-
-        print(percentage)
-        if percentage >= 99 {
-            progress.hidden = true
-        }
+        self.progressView.updateProgress(percentage)
     }
 }
