@@ -95,9 +95,16 @@
 			isa = PBXGroup;
 			children = (
 				5ABC2EF81C53F3970080B303 /* ProgressView.swift */,
-				5ABC2EFA1C53F4FA0080B303 /* Progress.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		5A459D4F1C55AC5900530528 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				5ABC2EFA1C53F4FA0080B303 /* Progress.xib */,
+			);
+			name = Xibs;
 			sourceTree = "<group>";
 		};
 		5A5336C21C2242010008BBF4 = {
@@ -127,6 +134,7 @@
 				5A1383761C4332F20005223F /* Models */,
 				5A3364B81C4CD4FF00A0B24F /* ViewControllers */,
 				5A3364B91C4CD51C00A0B24F /* Views */,
+				5A459D4F1C55AC5900530528 /* Xibs */,
 				5A5336CE1C2242010008BBF4 /* AppDelegate.swift */,
 				5A5336D01C2242010008BBF4 /* ViewController.swift */,
 				5A5336D21C2242010008BBF4 /* Main.storyboard */,
