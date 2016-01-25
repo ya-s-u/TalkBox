@@ -1,4 +1,5 @@
 import UIKit
+import Async
 
 class ImportViewController : UIViewController, TalkParserDelegate {
     var path = NSURL()
@@ -23,12 +24,11 @@ class ImportViewController : UIViewController, TalkParserDelegate {
     @IBAction func action(sender: AnyObject) {
         progressView.hidden = false
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+        Async.background {
             self.parser.parse()
-            dispatch_async(dispatch_get_main_queue(), {
-                self.progressView.hidden = true
-            })
-        })
+        }.main {
+            self.progressView.hidden = true
+        }
     }
     
     func didChangeProgress(percentage: Int) {

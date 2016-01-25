@@ -1,4 +1,5 @@
 import UIKit
+import Async
 
 class ProgressView: UIView {
     @IBOutlet weak var progress: UILabel!
@@ -23,11 +24,11 @@ class ProgressView: UIView {
     }
     
     func updateProgress(percentage: Int) {
-        dispatch_async(dispatch_get_main_queue(), {
+        Async.main {
             let progressView = self.subviews.first as! ProgressView
             progressView.progress.text = "\(percentage)%"
             self.setNeedsDisplay()
-        })
+        }
     }
 }
  

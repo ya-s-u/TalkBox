@@ -1,4 +1,5 @@
 PODS:
+  - AsyncSwift (1.6.4)
   - Realm (0.97.0):
     - Realm/Headers (= 0.97.0)
   - Realm/Headers (0.97.0)
@@ -8,11 +9,13 @@ PODS:
   - SwiftDate (2.0.2)
 
 DEPENDENCIES:
+  - AsyncSwift
   - RealmSwift
   - STRegex
   - SwiftDate (~> 2.0)
 
 SPEC CHECKSUMS:
+  AsyncSwift: 3c90beed237324f1b57e1f1c414dc5501985d208
   Realm: b498a6fb9d288b171ff98d0e2d4384c295be8990
   RealmSwift: d014810dec75c9a3f1a33926d2dabfed855c582c
   STRegex: 42baaef0406dd90bfa32e19c202a0c89075809b4
