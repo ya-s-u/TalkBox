@@ -146,5 +146,55 @@
             </objects>
             <point key="canvasLocation" x="418" y="1726"/>
         </scene>
+        <!--Progress View Controller-->
+        <scene sceneID="Gt5-Dn-xO0">
+            <objects>
+                <viewController storyboardIdentifier="Progress" id="HRc-8I-aca" customClass="ProgressViewController" customModule="TalkBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nxl-lh-u4v"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Hv-Yz-o4B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M9H-D1-57f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="BF7-KP-7jI">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <animations/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="トークをインポート中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Be-Dp-PHc">
+                                <rect key="frame" x="216" y="200" width="170" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihg-1W-ENG">
+                                <rect key="frame" x="289" y="338" width="24" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.74573359929078009" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="BF7-KP-7jI" firstAttribute="top" secondItem="7Be-Dp-PHc" secondAttribute="bottom" constant="60" id="0qr-5G-9Dq"/>
+                            <constraint firstItem="Ihg-1W-ENG" firstAttribute="top" secondItem="BF7-KP-7jI" secondAttribute="bottom" constant="20" id="Chn-DI-wwn"/>
+                            <constraint firstItem="BF7-KP-7jI" firstAttribute="centerX" secondItem="M9H-D1-57f" secondAttribute="centerX" id="DMi-ov-Ra9"/>
+                            <constraint firstItem="BF7-KP-7jI" firstAttribute="centerX" secondItem="7Be-Dp-PHc" secondAttribute="centerX" id="WQY-qg-d7s"/>
+                            <constraint firstItem="BF7-KP-7jI" firstAttribute="centerY" secondItem="M9H-D1-57f" secondAttribute="centerY" id="ehR-4d-4qo"/>
+                            <constraint firstItem="Ihg-1W-ENG" firstAttribute="centerX" secondItem="BF7-KP-7jI" secondAttribute="centerX" id="hK3-mm-gK7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progress" destination="Ihg-1W-ENG" id="Yif-ha-qyq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Keu-eI-M7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1095" y="1726"/>
+        </scene>
     </scenes>
 </document>

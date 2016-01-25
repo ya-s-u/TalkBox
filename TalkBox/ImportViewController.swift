@@ -3,7 +3,7 @@ import UIKit
 class ImportViewController : UIViewController, TalkParserDelegate {
     var path = NSURL()
     var parser: TalkParser!
-    var progress: ProgressView!
+    var progressViewController: ProgressViewController!
     
     override func viewDidLoad() {
         parser = TalkParser(path: self.path)
@@ -11,9 +11,11 @@ class ImportViewController : UIViewController, TalkParserDelegate {
         
         parser.delegate = self
         
-        progress = ProgressView(frame: self.view.frame)
-        progress.hidden = true
-        self.view.addSubview(progress)
+        progressViewController = storyboard?.instantiateViewControllerWithIdentifier("Progress") as! ProgressViewController
+        self.addChildViewController(progressViewController)
+        progressViewController.view.frame = self.view.frame
+        view.addSubview(progressViewController.view)
+        progressViewController.view.hidden = true
     }
     
     @IBAction func close(sender: AnyObject) {
@@ -21,27 +23,20 @@ class ImportViewController : UIViewController, TalkParserDelegate {
     }
     
     @IBAction func action(sender: AnyObject) {
-        progress.hidden = false
+        progressViewController.view.hidden = false
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
             let _ = self.parser.parse()
             dispatch_async(dispatch_get_main_queue(), {
-                print("finish")
+                self.progressViewController.view.hidden = true
             })
         })
-        
-//        let _ = parser.parse()
     }
     
     func didChangeProgress(percentage: Int) {
-//        progress.updateProgress(percentage)
-        //        progress.progress.text = "\(percentage)%"
-//        let aaa = progress.subviews.first as! ProgressView
-//        aaa.progress.text = "\(percentage)%"
-
-        print(percentage)
-        if percentage >= 99 {
-            progress.hidden = true
-        }
+        dispatch_async(dispatch_get_main_queue(), {
+            self.progressViewController.progress.text = "\(percentage)%"
+            self.view.setNeedsDisplay()
+        })
     }
 }
