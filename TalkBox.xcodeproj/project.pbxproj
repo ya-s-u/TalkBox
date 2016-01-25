@@ -11,7 +11,6 @@
 		5A1383751C4332330005223F /* TalkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383741C4332330005223F /* TalkParser.swift */; };
 		5A1383781C4333000005223F /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383771C4333000005223F /* Talk.swift */; };
 		5A13837A1C43330E0005223F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383791C43330E0005223F /* Message.swift */; };
-		5A459D4E1C553D4F00530528 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A459D4D1C553D4F00530528 /* ProgressViewController.swift */; };
 		5A5336CF1C2242010008BBF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5336CE1C2242010008BBF4 /* AppDelegate.swift */; };
 		5A5336D11C2242010008BBF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5336D01C2242010008BBF4 /* ViewController.swift */; };
 		5A5336D41C2242010008BBF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D21C2242010008BBF4 /* Main.storyboard */; };
@@ -31,7 +30,6 @@
 		5A1383771C4333000005223F /* Talk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Talk.swift; sourceTree = "<group>"; };
 		5A1383791C43330E0005223F /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		5A3364BA1C51495700A0B24F /* TalkBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TalkBox.entitlements; sourceTree = "<group>"; };
-		5A459D4D1C553D4F00530528 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		5A5336CB1C2242010008BBF4 /* TalkBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5336CE1C2242010008BBF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A5336D01C2242010008BBF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */,
-				5A459D4D1C553D4F00530528 /* ProgressViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -291,7 +288,6 @@
 				5A5336D11C2242010008BBF4 /* ViewController.swift in Sources */,
 				5A5336EC1C2257910008BBF4 /* String+.swift in Sources */,
 				5ABC2EF91C53F3970080B303 /* ProgressView.swift in Sources */,
-				5A459D4E1C553D4F00530528 /* ProgressViewController.swift in Sources */,
 				5A5336CF1C2242010008BBF4 /* AppDelegate.swift in Sources */,
 				5A1383781C4333000005223F /* Talk.swift in Sources */,
 				5A13837A1C43330E0005223F /* Message.swift in Sources */,
