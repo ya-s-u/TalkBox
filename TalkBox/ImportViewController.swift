@@ -28,10 +28,20 @@ class ImportViewController : UIViewController, TalkParserDelegate {
             self.parser.parse()
         }.main {
             self.progressView.hidden = true
+            self.showCompleteAlert()
         }
     }
     
     func didChangeProgress(percentage: Int) {
         self.progressView.updateProgress(percentage)
+    }
+    
+    func showCompleteAlert() {
+        let alertController = UIAlertController(title: "完了しました!", message: "トークのインポートが完了しました。", preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default) {
+            action in self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        alertController.addAction(defaultAction)
+        presentViewController(alertController, animated: true, completion: nil)
     }
 }
