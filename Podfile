@@ -7,5 +7,6 @@ target 'TalkBox' do
   pod 'SwiftDate', '~> 2.0'
   pod 'RealmSwift'
   pod 'AsyncSwift'
+  pod 'SwiftFilePath'
 end
 
