@@ -13,9 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("iCloud is not available")
         }
         
-        let realm = try! Realm()
-        print(realm.path)
-        
         return true
     }
     

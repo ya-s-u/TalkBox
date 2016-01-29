@@ -11,6 +11,16 @@ class iCloud {
         return false
     }
     
+    class func path() -> String {
+        return (NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)?.absoluteString)!
+    }
+    
+    class func sync() {
+        // iCloudを許可していないユーザーもいるので、.realmファイルは通常のDocumentsフォルダに入れておく
+        // iCloudを許可しているユーザーのみ、適宜DocumentsフォルダをiCloudフォルダにコピーする
+        // TODO: DocumentsフォルダをiCloud/Documentsフォルダにコピーする
+    }
+    
     class func test() {
         // must call
         let iCloudPath = NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)
@@ -19,7 +29,7 @@ class iCloud {
         let realmFile = Path.documentsDir["default.realm"]
         realmFile.copyTo( iCloudDir["default.realm"] )
         
-        for content:Path in iCloudDir {
+        for content:Path in Path.documentsDir {
             print("\(content)")
         }
     }
