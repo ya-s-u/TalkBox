@@ -1,5 +1,6 @@
 import UIKit
 import Async
+import SwiftFilePath
 
 class HomeTableViewController: UITableViewController, UINavigationControllerDelegate {
     
@@ -22,12 +23,12 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return (Path.documentsDir.contents?.count)!
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Talk")
-        cell.textLabel?.text = "\(indexPath.row)"
+        cell.textLabel?.text = "\(Path.documentsDir.contents![indexPath.row].basename)"
         return cell
     }
     

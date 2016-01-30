@@ -18,23 +18,21 @@ class iCloud {
         return Path("\((self.path() as NSString).stringByReplacingOccurrencesOfString("/private/", withString: "/").stringByReplacingOccurrencesOfString("%20", withString: " "))/Documents")
     }
     
-    class func upload() -> Bool {
+    class func upload() {
         let file = "default.realm"
         let result = Path.documentsDir[file].copyTo(self.dir()[file])
-        if result.isFailure {
-            return false
-        }
-        return self.removeInbox() ? true : false
+        if result.isFailure { print(result.error) }
+        self.removeInbox()
     }
     
-    class func download() -> Bool {
+    class func download() {
         let file = "default.realm"
         let result = self.dir()[file].copyTo(Path.documentsDir[file])
-        return result.isSuccess ? true : false
+        if result.isFailure { print(result.error) }
     }
     
-    private class func removeInbox() -> Bool {
+    private class func removeInbox() {
         let result = Path.documentsDir["Inbox"].remove()
-        return result.isSuccess ? true : false
+        if result.isFailure { print(result.error) }
     }
 }
