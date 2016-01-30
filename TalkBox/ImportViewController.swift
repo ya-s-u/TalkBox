@@ -1,16 +1,14 @@
 import UIKit
 import Async
 
-class ImportViewController : UIViewController, TalkParserDelegate {
+class ImportViewController : UIViewController, TalkFileDelegate {
     var path = NSURL()
-    var parser: TalkParser!
+    var file: TalkFile!
     var progressView: ProgressView!
     
     override func viewDidLoad() {
-        parser = TalkParser(path: self.path)
-        print(parser.fileName())
-        
-        parser.delegate = self
+        file = TalkFile(path: self.path)
+        file.delegate = self
         
         progressView = ProgressView(frame: self.view.frame)
         progressView.hidden = true
@@ -25,7 +23,7 @@ class ImportViewController : UIViewController, TalkParserDelegate {
         progressView.hidden = false
         
         Async.background {
-            self.parser.parse()
+            self.file.parse()
         }.main {
             self.progressView.hidden = true
             self.showCompleteAlert()

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B90611B5608D095097FA153 /* Pods_TalkBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE214EA711175A4AFB5B839 /* Pods_TalkBox.framework */; };
-		5A1383751C4332330005223F /* TalkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383741C4332330005223F /* TalkParser.swift */; };
+		5A1383751C4332330005223F /* TalkFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383741C4332330005223F /* TalkFile.swift */; };
 		5A1383781C4333000005223F /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383771C4333000005223F /* Talk.swift */; };
 		5A13837A1C43330E0005223F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383791C43330E0005223F /* Message.swift */; };
 		5A5336CF1C2242010008BBF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5336CE1C2242010008BBF4 /* AppDelegate.swift */; };
@@ -17,6 +17,7 @@
 		5A5336D61C2242010008BBF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D51C2242010008BBF4 /* Assets.xcassets */; };
 		5A5336D91C2242010008BBF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D71C2242010008BBF4 /* LaunchScreen.storyboard */; };
 		5A5336EC1C2257910008BBF4 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5336EB1C2257910008BBF4 /* String+.swift */; };
+		5A6AA6751C5BFBBC00FC1220 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA6741C5BFBBC00FC1220 /* HomeTableViewController.swift */; };
 		5ABC2EF51C53C4AD0080B303 /* iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF41C53C4AD0080B303 /* iCloud.swift */; };
 		5ABC2EF71C53E19D0080B303 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */; };
 		5ABC2EF91C53F3970080B303 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF81C53F3970080B303 /* ProgressView.swift */; };
@@ -26,7 +27,7 @@
 /* Begin PBXFileReference section */
 		0EE214EA711175A4AFB5B839 /* Pods_TalkBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TalkBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BC03E9E5596E5F87B019FA /* Pods-TalkBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TalkBox/Pods-TalkBox.debug.xcconfig"; sourceTree = "<group>"; };
-		5A1383741C4332330005223F /* TalkParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkParser.swift; sourceTree = "<group>"; };
+		5A1383741C4332330005223F /* TalkFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkFile.swift; sourceTree = "<group>"; };
 		5A1383771C4333000005223F /* Talk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Talk.swift; sourceTree = "<group>"; };
 		5A1383791C43330E0005223F /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		5A3364BA1C51495700A0B24F /* TalkBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TalkBox.entitlements; sourceTree = "<group>"; };
@@ -38,6 +39,7 @@
 		5A5336D81C2242010008BBF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A5336DA1C2242010008BBF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A5336EB1C2257910008BBF4 /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		5A6AA6741C5BFBBC00FC1220 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		5ABC2EF41C53C4AD0080B303 /* iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloud.swift; sourceTree = "<group>"; };
 		5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
 		5ABC2EF81C53F3970080B303 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
@@ -68,7 +70,7 @@
 		5A1383731C4330F50005223F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				5A1383741C4332330005223F /* TalkParser.swift */,
+				5A1383741C4332330005223F /* TalkFile.swift */,
 				5ABC2EF41C53C4AD0080B303 /* iCloud.swift */,
 			);
 			name = Utilities;
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */,
+				5A6AA6741C5BFBBC00FC1220 /* HomeTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -291,10 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A1383751C4332330005223F /* TalkParser.swift in Sources */,
+				5A1383751C4332330005223F /* TalkFile.swift in Sources */,
 				5ABC2EF51C53C4AD0080B303 /* iCloud.swift in Sources */,
 				5A5336D11C2242010008BBF4 /* ViewController.swift in Sources */,
 				5A5336EC1C2257910008BBF4 /* String+.swift in Sources */,
+				5A6AA6751C5BFBBC00FC1220 /* HomeTableViewController.swift in Sources */,
 				5ABC2EF91C53F3970080B303 /* ProgressView.swift in Sources */,
 				5A5336CF1C2242010008BBF4 /* AppDelegate.swift in Sources */,
 				5A1383781C4333000005223F /* Talk.swift in Sources */,

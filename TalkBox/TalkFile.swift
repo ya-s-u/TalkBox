@@ -2,16 +2,17 @@ import Foundation
 import Regex
 import SwiftDate
 import RealmSwift
+import SwiftFilePath
 
-@objc protocol TalkParserDelegate {
+@objc protocol TalkFileDelegate {
     optional func didChangeProgress(percentage: Int)
 }
 
-class TalkParser {
+class TalkFile {
     var path = NSURL()
     var contents = String()
     
-    weak var delegate: TalkParserDelegate?
+    weak var delegate: TalkFileDelegate?
     
     init(path: NSURL) {
         do {
@@ -22,7 +23,7 @@ class TalkParser {
         }
     }
     
-    func fileName() -> String {
+    func name() -> String {
         let file = self.path.URLByDeletingPathExtension?.lastPathComponent
         if let matches = Regex("^\\[LINE\\] (.+)トーク(.*)").match(file!)?.captures {
             return "\(matches[0])トーク"

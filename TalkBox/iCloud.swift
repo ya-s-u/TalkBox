@@ -5,32 +5,36 @@ class iCloud {
     
     class func available() -> Bool {
         if let _ = NSFileManager.defaultManager().ubiquityIdentityToken {
-            self.test()
             return true
         }
         return false
     }
     
     class func path() -> String {
-        return (NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)?.absoluteString)!
+        return (NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)?.path)!
     }
     
-    class func sync() {
-        // iCloudを許可していないユーザーもいるので、.realmファイルは通常のDocumentsフォルダに入れておく
-        // iCloudを許可しているユーザーのみ、適宜DocumentsフォルダをiCloudフォルダにコピーする
-        // TODO: DocumentsフォルダをiCloud/Documentsフォルダにコピーする
+    class func dir() -> Path {
+        return Path("\((self.path() as NSString).stringByReplacingOccurrencesOfString("/private/", withString: "/").stringByReplacingOccurrencesOfString("%20", withString: " "))/Documents")
     }
     
-    class func test() {
-        // must call
-        let iCloudPath = NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)
-        let iCloudDir = Path("\(((iCloudPath?.absoluteString)! as NSString).substringFromIndex(15).stringByReplacingOccurrencesOfString("%20", withString: " "))Documents")
-        
-        let realmFile = Path.documentsDir["default.realm"]
-        realmFile.copyTo( iCloudDir["default.realm"] )
-        
-        for content:Path in Path.documentsDir {
-            print("\(content)")
+    class func upload() -> Bool {
+        let file = "default.realm"
+        let result = Path.documentsDir[file].copyTo(self.dir()[file])
+        if result.isFailure {
+            return false
         }
+        return self.removeInbox() ? true : false
+    }
+    
+    class func download() -> Bool {
+        let file = "default.realm"
+        let result = self.dir()[file].copyTo(Path.documentsDir[file])
+        return result.isSuccess ? true : false
+    }
+    
+    private class func removeInbox() -> Bool {
+        let result = Path.documentsDir["Inbox"].remove()
+        return result.isSuccess ? true : false
     }
 }
