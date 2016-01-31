@@ -9,10 +9,10 @@ import SwiftFilePath
 }
 
 class TalkFile {
+    weak var delegate: TalkFileDelegate?
+    
     var path = NSURL()
     var contents = String()
-    
-    weak var delegate: TalkFileDelegate?
     
     init(path: NSURL) {
         do {
@@ -31,16 +31,10 @@ class TalkFile {
         return ""
     }
     
-    func saveAsNew() {
-        
-    }
-    
-    func saveAsAdd() {
-        
-    }
-    
     func parse() -> Talk {
         let talk = Talk()
+        
+        var users: [String: Int] = [:]
         
         var currentDate = ""
         var multipleLine = false
@@ -51,12 +45,12 @@ class TalkFile {
         var progress = 0
         
         for (_, line) in self.contents.lines.enumerate() {
+            
             // progress
             let current = Int(Float(i++)/Float(size)*100)
             if current != progress {
                 progress = current
                 self.delegate?.didChangeProgress!(progress)
-//                print("\(progress)%")
             }
             
             // start multiple lines
@@ -75,6 +69,12 @@ class TalkFile {
                     multipleLine = false
                     multipleMessage.text += matches[0]
                     talk.messages.append(multipleMessage)
+                    talk.count++
+                    if users[multipleMessage.user] == nil {
+                        users[multipleMessage.user] = 0
+                    } else {
+                        users[multipleMessage.user] = users[multipleMessage.user]! + 1
+                    }
                     continue
                 }
                 
@@ -86,8 +86,8 @@ class TalkFile {
             }
             
             // title
-            if let matches = Regex("^\\[LINE\\] (.+?)のトーク履歴").match(line)?.captures {
-                talk.title = matches[0]
+            if let matches = Regex("^\\[LINE\\] (.+?)トーク履歴").match(line)?.captures {
+                talk.title = "\(matches[0])トーク"
                 continue
             }
             
@@ -102,6 +102,12 @@ class TalkFile {
                 let datetime = "\(currentDate) \(matches[0])".toDate(DateFormat.Custom("yyyy/MM/dd HH:mm"))!
                 let message = Message(value: ["user": matches[1], "text": matches[2], "created": datetime])
                 talk.messages.append(message)
+                talk.count++
+                if users[message.user] == nil {
+                    users[message.user] = 0
+                } else {
+                    users[message.user] = users[message.user]! + 1
+                }
                 continue
             }
             
@@ -114,12 +120,17 @@ class TalkFile {
             }
         }
         
+        // owner
+        talk.owner = users.first!.0
+        
+        // metas
+        // TODO:
+        
         // write
-//        let realm = try! Realm()
-//        talk.count = talk.messages.count
-//        try! realm.write {
-//            realm.add(talk)
-//        }
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(talk)
+        }
         
         return talk
     }

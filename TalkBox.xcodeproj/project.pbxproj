@@ -20,6 +20,10 @@
 		5A6AA6751C5BFBBC00FC1220 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA6741C5BFBBC00FC1220 /* HomeTableViewController.swift */; };
 		5A6AA6771C5CAE9700FC1220 /* TalkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA6761C5CAE9700FC1220 /* TalkTableViewController.swift */; };
 		5A6AA6791C5CB8C700FC1220 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA6781C5CB8C700FC1220 /* SettingViewController.swift */; };
+		5A6AA67D1C5DAA5300FC1220 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA67C1C5DAA5300FC1220 /* UIColor+.swift */; };
+		5A6AA67F1C5DD12700FC1220 /* TalkCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA67E1C5DD12700FC1220 /* TalkCellView.swift */; };
+		5A6AA6811C5E5ECD00FC1220 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6AA6801C5E5ECD00FC1220 /* MessageCell.xib */; };
+		5A6AA6831C5E5F4400FC1220 /* MessageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA6821C5E5F4400FC1220 /* MessageCellView.swift */; };
 		5ABC2EF51C53C4AD0080B303 /* iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF41C53C4AD0080B303 /* iCloud.swift */; };
 		5ABC2EF71C53E19D0080B303 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */; };
 		5ABC2EF91C53F3970080B303 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF81C53F3970080B303 /* ProgressView.swift */; };
@@ -44,6 +48,10 @@
 		5A6AA6741C5BFBBC00FC1220 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		5A6AA6761C5CAE9700FC1220 /* TalkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkTableViewController.swift; sourceTree = "<group>"; };
 		5A6AA6781C5CB8C700FC1220 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		5A6AA67C1C5DAA5300FC1220 /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		5A6AA67E1C5DD12700FC1220 /* TalkCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkCellView.swift; sourceTree = "<group>"; };
+		5A6AA6801C5E5ECD00FC1220 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		5A6AA6821C5E5F4400FC1220 /* MessageCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCellView.swift; sourceTree = "<group>"; };
 		5ABC2EF41C53C4AD0080B303 /* iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloud.swift; sourceTree = "<group>"; };
 		5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
 		5ABC2EF81C53F3970080B303 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
@@ -104,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				5ABC2EF81C53F3970080B303 /* ProgressView.swift */,
+				5A6AA67E1C5DD12700FC1220 /* TalkCellView.swift */,
+				5A6AA6821C5E5F4400FC1220 /* MessageCellView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -112,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				5ABC2EFA1C53F4FA0080B303 /* Progress.xib */,
+				5A6AA6801C5E5ECD00FC1220 /* MessageCell.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -158,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				5A5336EB1C2257910008BBF4 /* String+.swift */,
+				5A6AA67C1C5DAA5300FC1220 /* UIColor+.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -238,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6AA6811C5E5ECD00FC1220 /* MessageCell.xib in Resources */,
 				5A5336D91C2242010008BBF4 /* LaunchScreen.storyboard in Resources */,
 				5A5336D61C2242010008BBF4 /* Assets.xcassets in Resources */,
 				5A5336D41C2242010008BBF4 /* Main.storyboard in Resources */,
@@ -306,10 +319,13 @@
 				5A5336D11C2242010008BBF4 /* ViewController.swift in Sources */,
 				5A5336EC1C2257910008BBF4 /* String+.swift in Sources */,
 				5A6AA6751C5BFBBC00FC1220 /* HomeTableViewController.swift in Sources */,
+				5A6AA67F1C5DD12700FC1220 /* TalkCellView.swift in Sources */,
 				5ABC2EF91C53F3970080B303 /* ProgressView.swift in Sources */,
+				5A6AA6831C5E5F4400FC1220 /* MessageCellView.swift in Sources */,
 				5A5336CF1C2242010008BBF4 /* AppDelegate.swift in Sources */,
 				5A1383781C4333000005223F /* Talk.swift in Sources */,
 				5A13837A1C43330E0005223F /* Message.swift in Sources */,
+				5A6AA67D1C5DAA5300FC1220 /* UIColor+.swift in Sources */,
 				5ABC2EF71C53E19D0080B303 /* ImportViewController.swift in Sources */,
 				5A6AA6791C5CB8C700FC1220 /* SettingViewController.swift in Sources */,
 			);

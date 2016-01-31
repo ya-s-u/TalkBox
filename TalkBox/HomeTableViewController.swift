@@ -1,12 +1,19 @@
 import UIKit
 import Async
-import SwiftFilePath
+import RealmSwift
 
 class HomeTableViewController: UITableViewController, UINavigationControllerDelegate {
     @IBOutlet weak var settingBtn: UIBarButtonItem!
     @IBOutlet weak var backupBtn: UIBarButtonItem!
     
+    let realm = try! Realm()
+    var talks: [Talk] = []
+    
     override func viewDidLoad() {
+        
+        // data
+        let results = realm.objects(Talk).sorted("updated", ascending: false)
+        talks = results.map { $0 }
         
         // backup button
         if !iCloud.available() { backupBtn.enabled = false }
@@ -30,27 +37,27 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
         case "showTalk":
-            let cell = sender as! UITableViewCell
+            let cell = sender as! TalkCellView
             let vc = segue.destinationViewController as! TalkTableViewController
-            vc.title = cell.textLabel?.text
+            vc.talk = cell.talk
         default:
             break
         }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (Path.documentsDir.contents?.count)!
+        return talks.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Talk")
-        cell.textLabel?.text = "\(Path.documentsDir.contents![indexPath.row].basename)"
+        let cell = tableView.dequeueReusableCellWithIdentifier("Talk", forIndexPath: indexPath) as! TalkCellView
+        cell.textLabel?.text = "\(talks[indexPath.row].title)"
+        cell.talk = talks[indexPath.row]
         return cell
     }
     
     override func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
-        print(indexPath.row)
-        let cell = table.cellForRowAtIndexPath(indexPath)! as UITableViewCell
+        let cell = table.cellForRowAtIndexPath(indexPath)! as! TalkCellView
         performSegueWithIdentifier("showTalk", sender: cell)
     }
 

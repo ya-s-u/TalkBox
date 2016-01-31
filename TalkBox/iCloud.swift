@@ -21,18 +21,18 @@ class iCloud {
     class func upload() {
         let file = "default.realm"
         let result = Path.documentsDir[file].copyTo(self.dir()[file])
-        if result.isFailure { print(result.error) }
+//        if result.isFailure { print(result.error) }
         self.removeInbox()
     }
     
     class func download() {
         let file = "default.realm"
         let result = self.dir()[file].copyTo(Path.documentsDir[file])
-        if result.isFailure { print(result.error) }
+//        if result.isFailure { print(result.error) }
     }
     
     private class func removeInbox() {
         let result = Path.documentsDir["Inbox"].remove()
-        if result.isFailure { print(result.error) }
+//        if result.isFailure { print(result.error) }
     }
 }
