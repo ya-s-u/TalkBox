@@ -32,27 +32,39 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="トーク" id="B6d-YV-B8h">
-                        <barButtonItem key="rightBarButtonItem" title="アップロード" id="7aU-sl-XuD"/>
+                        <barButtonItem key="leftBarButtonItem" title="設定" id="d8r-zU-uMu">
+                            <connections>
+                                <action selector="setting:" destination="qCL-5B-LAi" id="5wU-cb-gVf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="アップロード" id="7aU-sl-XuD">
+                            <connections>
+                                <action selector="backup:" destination="qCL-5B-LAi" id="Djk-jH-GMX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="4RX-Fp-eVa" kind="show" id="AhD-Kj-Jjf"/>
+                        <outlet property="backupBtn" destination="7aU-sl-XuD" id="xFO-kl-sVl"/>
+                        <outlet property="settingBtn" destination="d8r-zU-uMu" id="JOC-OO-uBW"/>
+                        <segue destination="4RX-Fp-eVa" kind="show" identifier="showTalk" id="AhD-Kj-Jjf"/>
+                        <segue destination="1Sc-Ib-Gfs" kind="presentation" identifier="showSetting" id="j55-a2-gNg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDp-gV-R2w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1095" y="995"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Talk Table View Controller-->
         <scene sceneID="jKY-O3-PVx">
             <objects>
-                <tableViewController id="4RX-Fp-eVa" sceneMemberID="viewController">
+                <tableViewController id="4RX-Fp-eVa" customClass="TalkTableViewController" customModule="TalkBox" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="C8F-3P-zr6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Z5L-Mq-Pwq">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Message" id="Z5L-Mq-Pwq">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z5L-Mq-Pwq" id="lb0-d5-l85">
@@ -147,6 +159,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LxY-LL-n5k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="418" y="1726"/>
+        </scene>
+        <!--設定-->
+        <scene sceneID="PFG-Sa-oUG">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nDY-9z-ykh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="9us-Yv-sdP" customClass="SettingViewController" customModule="TalkBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EX3-h2-ba0"/>
+                        <viewControllerLayoutGuide type="bottom" id="E6M-gB-GO3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ebw-yq-8Ln">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="設定" id="p2R-oG-a4q">
+                        <barButtonItem key="leftBarButtonItem" title="閉じる" id="pTG-QK-oJK">
+                            <connections>
+                                <action selector="close:" destination="9us-Yv-sdP" id="3rf-ZP-64k"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1766" y="314"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0fq-Pn-awi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Sc-Ib-Gfs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hmd-xi-olM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9us-Yv-sdP" kind="relationship" relationship="rootViewController" id="er6-zf-P0o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ud-bB-sVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1095" y="314"/>
         </scene>
     </scenes>
 </document>

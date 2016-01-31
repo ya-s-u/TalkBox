@@ -3,22 +3,38 @@ import Async
 import SwiftFilePath
 
 class HomeTableViewController: UITableViewController, UINavigationControllerDelegate {
+    @IBOutlet weak var settingBtn: UIBarButtonItem!
+    @IBOutlet weak var backupBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
         
         // backup button
-        let rightBtn = UIBarButtonItem(title: "アップロード", style: .Plain, target: self, action: "backup:")
-        self.navigationItem.rightBarButtonItem = rightBtn
+        if !iCloud.available() { backupBtn.enabled = false }
     }
     
-    func backup(sender: UIBarButtonItem) {
+    @IBAction func setting(sender: AnyObject) {
+        performSegueWithIdentifier("showSetting", sender: self)
+    }
+    
+    @IBAction func backup(sender: AnyObject) {
         iCloud.upload()
-        self.navigationItem.rightBarButtonItem?.enabled = false
-        self.navigationItem.rightBarButtonItem?.title = "・・・"
+        backupBtn.enabled = false
+        backupBtn.title = "・・・"
         
         Async.main(after: 3) {
-            self.navigationItem.rightBarButtonItem?.enabled = true
-            self.navigationItem.rightBarButtonItem?.title = "アップロード"
+            self.backupBtn.enabled = true
+            self.backupBtn.title = "アップロード"
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch segue.identifier! {
+        case "showTalk":
+            let cell = sender as! UITableViewCell
+            let vc = segue.destinationViewController as! TalkTableViewController
+            vc.title = cell.textLabel?.text
+        default:
+            break
         }
     }
     
@@ -34,6 +50,8 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
     
     override func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         print(indexPath.row)
+        let cell = table.cellForRowAtIndexPath(indexPath)! as UITableViewCell
+        performSegueWithIdentifier("showTalk", sender: cell)
     }
 
     

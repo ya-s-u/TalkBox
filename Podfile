@@ -8,5 +8,6 @@ target 'TalkBox' do
   pod 'RealmSwift'
   pod 'AsyncSwift'
   pod 'SwiftFilePath'
+  pod 'Eureka', '~> 1.3'
 end
 
