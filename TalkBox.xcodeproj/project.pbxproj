@@ -12,7 +12,6 @@
 		5A1383781C4333000005223F /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383771C4333000005223F /* Talk.swift */; };
 		5A13837A1C43330E0005223F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1383791C43330E0005223F /* Message.swift */; };
 		5A5336CF1C2242010008BBF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5336CE1C2242010008BBF4 /* AppDelegate.swift */; };
-		5A5336D11C2242010008BBF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5336D01C2242010008BBF4 /* ViewController.swift */; };
 		5A5336D41C2242010008BBF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D21C2242010008BBF4 /* Main.storyboard */; };
 		5A5336D61C2242010008BBF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D51C2242010008BBF4 /* Assets.xcassets */; };
 		5A5336D91C2242010008BBF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D71C2242010008BBF4 /* LaunchScreen.storyboard */; };
@@ -24,6 +23,7 @@
 		5A6AA67F1C5DD12700FC1220 /* TalkCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA67E1C5DD12700FC1220 /* TalkCellView.swift */; };
 		5A6AA6811C5E5ECD00FC1220 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6AA6801C5E5ECD00FC1220 /* MessageCell.xib */; };
 		5A6AA6831C5E5F4400FC1220 /* MessageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA6821C5E5F4400FC1220 /* MessageCellView.swift */; };
+		5A6AA6851C5E6D6A00FC1220 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA6841C5E6D6A00FC1220 /* Notification.swift */; };
 		5ABC2EF51C53C4AD0080B303 /* iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF41C53C4AD0080B303 /* iCloud.swift */; };
 		5ABC2EF71C53E19D0080B303 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */; };
 		5ABC2EF91C53F3970080B303 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF81C53F3970080B303 /* ProgressView.swift */; };
@@ -39,7 +39,6 @@
 		5A3364BA1C51495700A0B24F /* TalkBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TalkBox.entitlements; sourceTree = "<group>"; };
 		5A5336CB1C2242010008BBF4 /* TalkBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5336CE1C2242010008BBF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5A5336D01C2242010008BBF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5A5336D31C2242010008BBF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5A5336D51C2242010008BBF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A5336D81C2242010008BBF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		5A6AA67E1C5DD12700FC1220 /* TalkCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkCellView.swift; sourceTree = "<group>"; };
 		5A6AA6801C5E5ECD00FC1220 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		5A6AA6821C5E5F4400FC1220 /* MessageCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCellView.swift; sourceTree = "<group>"; };
+		5A6AA6841C5E6D6A00FC1220 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		5ABC2EF41C53C4AD0080B303 /* iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloud.swift; sourceTree = "<group>"; };
 		5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
 		5ABC2EF81C53F3970080B303 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
@@ -83,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				5A1383741C4332330005223F /* TalkFile.swift */,
+				5A6AA6841C5E6D6A00FC1220 /* Notification.swift */,
 				5ABC2EF41C53C4AD0080B303 /* iCloud.swift */,
 			);
 			name = Utilities;
@@ -149,14 +150,13 @@
 			isa = PBXGroup;
 			children = (
 				5A3364BA1C51495700A0B24F /* TalkBox.entitlements */,
+				5A5336CE1C2242010008BBF4 /* AppDelegate.swift */,
 				5A5336EA1C22577D0008BBF4 /* Extensions */,
 				5A1383731C4330F50005223F /* Utilities */,
 				5A1383761C4332F20005223F /* Models */,
 				5A3364B81C4CD4FF00A0B24F /* ViewControllers */,
 				5A3364B91C4CD51C00A0B24F /* Views */,
 				5A459D4F1C55AC5900530528 /* Xibs */,
-				5A5336CE1C2242010008BBF4 /* AppDelegate.swift */,
-				5A5336D01C2242010008BBF4 /* ViewController.swift */,
 				5A5336D21C2242010008BBF4 /* Main.storyboard */,
 				5A5336D51C2242010008BBF4 /* Assets.xcassets */,
 				5A5336D71C2242010008BBF4 /* LaunchScreen.storyboard */,
@@ -316,7 +316,6 @@
 				5A6AA6771C5CAE9700FC1220 /* TalkTableViewController.swift in Sources */,
 				5A1383751C4332330005223F /* TalkFile.swift in Sources */,
 				5ABC2EF51C53C4AD0080B303 /* iCloud.swift in Sources */,
-				5A5336D11C2242010008BBF4 /* ViewController.swift in Sources */,
 				5A5336EC1C2257910008BBF4 /* String+.swift in Sources */,
 				5A6AA6751C5BFBBC00FC1220 /* HomeTableViewController.swift in Sources */,
 				5A6AA67F1C5DD12700FC1220 /* TalkCellView.swift in Sources */,
@@ -325,6 +324,7 @@
 				5A5336CF1C2242010008BBF4 /* AppDelegate.swift in Sources */,
 				5A1383781C4333000005223F /* Talk.swift in Sources */,
 				5A13837A1C43330E0005223F /* Message.swift in Sources */,
+				5A6AA6851C5E6D6A00FC1220 /* Notification.swift in Sources */,
 				5A6AA67D1C5DAA5300FC1220 /* UIColor+.swift in Sources */,
 				5ABC2EF71C53E19D0080B303 /* ImportViewController.swift in Sources */,
 				5A6AA6791C5CB8C700FC1220 /* SettingViewController.swift in Sources */,

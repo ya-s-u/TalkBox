@@ -2,7 +2,7 @@ import UIKit
 import Async
 import RealmSwift
 
-class HomeTableViewController: UITableViewController, UINavigationControllerDelegate {
+class HomeTableViewController: UITableViewController, UINavigationControllerDelegate, NotificationDelegate {
     @IBOutlet weak var settingBtn: UIBarButtonItem!
     @IBOutlet weak var backupBtn: UIBarButtonItem!
     
@@ -10,6 +10,7 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
     var talks: [Talk] = []
     
     override func viewDidLoad() {
+        Notification.shared.delegate = self
         
         // data
         let results = realm.objects(Talk).sorted("updated", ascending: false)
@@ -17,6 +18,13 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
         
         // backup button
         if !iCloud.available() { backupBtn.enabled = false }
+    }
+    
+    func refreshHome() {
+        // data
+        let results = realm.objects(Talk).sorted("updated", ascending: false)
+        talks = results.map { $0 }
+        self.tableView.reloadData()
     }
     
     @IBAction func setting(sender: AnyObject) {

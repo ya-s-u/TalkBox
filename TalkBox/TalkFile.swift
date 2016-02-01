@@ -38,7 +38,7 @@ class TalkFile {
         
         var currentDate = ""
         var multipleLine = false
-        let multipleMessage = Message()
+        var multipleMessage = Message()
         
         var i = 0
         let size = self.contents.lines.count
@@ -56,6 +56,7 @@ class TalkFile {
             // start multiple lines
             if let matches = Regex("^(\\d{2}:\\d{2})\\t(.+)\\t\"(.+)").match(line)?.captures {
                 multipleLine = true
+                multipleMessage = Message()
                 multipleMessage.created = "\(currentDate) \(matches[0])".toDate(DateFormat.Custom("yyyy/MM/dd HH:mm"))!
                 multipleMessage.user = matches[1]
                 multipleMessage.text = (matches[2]+"\n")

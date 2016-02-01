@@ -8,7 +8,7 @@
         <!--トーク-->
         <scene sceneID="xhc-He-xtl">
             <objects>
-                <tableViewController id="qCL-5B-LAi" customClass="HomeTableViewController" customModule="TalkBox" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Home" id="qCL-5B-LAi" customClass="HomeTableViewController" customModule="TalkBox" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dFh-Id-wLY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +57,7 @@
         <!--Talk Table View Controller-->
         <scene sceneID="jKY-O3-PVx">
             <objects>
-                <tableViewController id="4RX-Fp-eVa" customClass="TalkTableViewController" customModule="TalkBox" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Talk" id="4RX-Fp-eVa" customClass="TalkTableViewController" customModule="TalkBox" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="C8F-3P-zr6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,7 +164,7 @@
         <scene sceneID="PFG-Sa-oUG">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nDY-9z-ykh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="9us-Yv-sdP" customClass="SettingViewController" customModule="TalkBox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Setting" id="9us-Yv-sdP" customClass="SettingViewController" customModule="TalkBox" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EX3-h2-ba0"/>
                         <viewControllerLayoutGuide type="bottom" id="E6M-gB-GO3"/>
