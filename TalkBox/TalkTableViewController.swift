@@ -4,6 +4,8 @@ import SwiftDate
 
 class TalkTableViewController: UITableViewController, UINavigationControllerDelegate {
     
+    var isFirstTime = true
+    
     var talk: Talk? {
         didSet {
             self.title = talk?.title
@@ -12,31 +14,41 @@ class TalkTableViewController: UITableViewController, UINavigationControllerDele
     
     override func viewDidLoad() {
         self.tableView.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
-        
         self.tableView.estimatedRowHeight = 90
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.showsVerticalScrollIndicator = false
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return (talk?.messages.count)!
+    override func viewWillAppear(animated: Bool) {
+        let row = self.tableView.numberOfRowsInSection(0) - 1
+        let indexPath = NSIndexPath(forRow: row, inSection: 0)
+        self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: false)
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return talk?.messages[section].created.toString(DateFormat.Custom("YYYY年MM月dd日"))
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if !isFirstTime { return }
+        
+        if let lastIndexPath = self.tableView.indexPathsForVisibleRows?.last {
+            self.tableView.scrollToRowAtIndexPath(lastIndexPath, atScrollPosition: .Bottom, animated: false)
+            self.isFirstTime = false
+        }
     }
+}
+
+extension TalkTableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return (talk?.messages.count)!
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCellView
-        cell.body.text = "\(talk?.messages[indexPath.section].text)"
+        cell.body.text = "\((talk?.messages[indexPath.row].text)!)"
         return cell
     }
     
     override func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         print(indexPath.row)
     }
-    
+
 }
