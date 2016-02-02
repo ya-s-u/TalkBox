@@ -10,7 +10,7 @@ class Notification {
     
     private init() {}
     
-    private func refreshHome() {
+    func refreshHome() {
         self.delegate.refreshHome!()
     }
 }
