@@ -49,6 +49,10 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
         }
     }
     
+}
+
+extension HomeTableViewController {
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return talks.count
     }
@@ -64,6 +68,4 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
         let cell = table.cellForRowAtIndexPath(indexPath)! as! TalkCellView
         performSegueWithIdentifier("showTalk", sender: cell)
     }
-
-    
 }

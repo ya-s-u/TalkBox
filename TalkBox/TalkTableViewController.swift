@@ -4,8 +4,6 @@ import SwiftDate
 
 class TalkTableViewController: UITableViewController, UINavigationControllerDelegate {
     
-    var isFirstTime = true
-    
     var talk: Talk? {
         didSet {
             self.title = talk?.title
@@ -25,14 +23,6 @@ class TalkTableViewController: UITableViewController, UINavigationControllerDele
         self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: false)
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if !isFirstTime { return }
-        
-        if let lastIndexPath = self.tableView.indexPathsForVisibleRows?.last {
-            self.tableView.scrollToRowAtIndexPath(lastIndexPath, atScrollPosition: .Bottom, animated: false)
-            self.isFirstTime = false
-        }
-    }
 }
 
 extension TalkTableViewController {
