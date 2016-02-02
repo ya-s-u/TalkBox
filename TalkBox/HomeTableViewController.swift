@@ -11,17 +11,13 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
     
     override func viewDidLoad() {
         Notification.shared.delegate = self
-        
-        // data
-        let results = realm.objects(Talk).sorted("updated", ascending: false)
-        talks = results.map { $0 }
+        refreshHome()
         
         // backup button
         if !iCloud.available() { backupBtn.enabled = false }
     }
     
     func refreshHome() {
-        // data
         let results = realm.objects(Talk).sorted("updated", ascending: false)
         talks = results.map { $0 }
         self.tableView.reloadData()
