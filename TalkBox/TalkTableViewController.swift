@@ -15,6 +15,19 @@ class TalkTableViewController: UITableViewController, UINavigationControllerDele
         self.tableView.estimatedRowHeight = 90
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.showsVerticalScrollIndicator = false
+        
+//        let progressView = ScrollIndicatorView(frame: self.view.frame)
+//        self.view.addSubview(progressView)
+        
+        let slider = UISlider()
+        slider.frame = CGRectMake(10, 10, 10, self.tableView.frame.size.height)
+//        slider.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2.0))
+        slider.minimumValue = 0.0
+        slider.maximumValue = Float(self.tableView.frame.size.height)
+        slider.value = Float(self.tableView.contentOffset.y)
+        slider.backgroundColor = UIColor.redColor()
+        
+        self.navigationController?.view.addSubview(slider)
     }
     
     override func viewWillAppear(animated: Bool) {
