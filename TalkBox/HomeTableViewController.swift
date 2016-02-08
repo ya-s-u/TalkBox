@@ -42,7 +42,7 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
         switch segue.identifier! {
         case "showTalk":
             let cell = sender as! TalkCellView
-            let vc = segue.destinationViewController as! TalkTableViewController
+            let vc = segue.destinationViewController as! TalkViewController
             vc.talk = cell.talk
         default:
             break

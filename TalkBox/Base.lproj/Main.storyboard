@@ -46,30 +46,46 @@
                     <connections>
                         <outlet property="backupBtn" destination="7aU-sl-XuD" id="xFO-kl-sVl"/>
                         <outlet property="settingBtn" destination="d8r-zU-uMu" id="JOC-OO-uBW"/>
-                        <segue destination="4RX-Fp-eVa" kind="show" identifier="showTalk" id="AhD-Kj-Jjf"/>
                         <segue destination="1Sc-Ib-Gfs" kind="presentation" identifier="showSetting" id="j55-a2-gNg"/>
+                        <segue destination="jDF-0B-dZF" kind="show" identifier="showTalk" id="Wdq-5b-Am5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDp-gV-R2w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1095" y="995"/>
         </scene>
-        <!--Talk Table View Controller-->
-        <scene sceneID="jKY-O3-PVx">
+        <!--Talk View Controller-->
+        <scene sceneID="z1d-Tp-lD2">
             <objects>
-                <tableViewController storyboardIdentifier="Talk" id="4RX-Fp-eVa" customClass="TalkTableViewController" customModule="TalkBox" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="C8F-3P-zr6">
+                <viewController storyboardIdentifier="Talk" id="jDF-0B-dZF" customClass="TalkViewController" customModule="TalkBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jrb-EE-sbb"/>
+                        <viewControllerLayoutGuide type="bottom" id="AoT-7O-Pnp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aap-k1-5Yq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="izC-vg-HL2">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="4RX-Fp-eVa" id="J57-C3-IzN"/>
-                            <outlet property="delegate" destination="4RX-Fp-eVa" id="esp-PU-brF"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GtY-EI-yic" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="izC-vg-HL2" secondAttribute="trailing" id="CFU-hI-asx"/>
+                            <constraint firstItem="izC-vg-HL2" firstAttribute="top" secondItem="jrb-EE-sbb" secondAttribute="bottom" constant="-64" id="EhB-p9-XEK"/>
+                            <constraint firstItem="izC-vg-HL2" firstAttribute="leading" secondItem="aap-k1-5Yq" secondAttribute="leading" id="R1R-zd-88t"/>
+                            <constraint firstItem="AoT-7O-Pnp" firstAttribute="top" secondItem="izC-vg-HL2" secondAttribute="bottom" id="bKt-Ui-eHA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="izC-vg-HL2" id="dmP-jy-aIG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PwH-oa-ape" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1766" y="995"/>
         </scene>
@@ -151,7 +167,6 @@
         <!--設定-->
         <scene sceneID="PFG-Sa-oUG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nDY-9z-ykh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Setting" id="9us-Yv-sdP" customClass="SettingViewController" customModule="TalkBox" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EX3-h2-ba0"/>
@@ -171,6 +186,7 @@
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nDY-9z-ykh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1766" y="314"/>
         </scene>
