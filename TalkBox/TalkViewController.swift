@@ -2,7 +2,7 @@ import UIKit
 import Async
 import SwiftDate
 
-class TalkViewController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class TalkViewController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     var slider = UISlider()
     
@@ -43,6 +43,10 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
         self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: false)
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        slider.value = Float((scrollView.contentOffset.y+64) / (tableView.contentSize.height-tableView.frame.height+64))
+    }
+    
     func onChangeValueMySlider(sender: UISlider){
         tableView.contentOffset.y = (tableView.contentSize.height-tableView.frame.height+64) * CGFloat(sender.value) - 64
     }
@@ -53,7 +57,8 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCellView
-        cell.body.text = "\((talk?.messages[indexPath.row].text)!)"
+        cell.message = talk?.messages[indexPath.row]
+        cell.is_owner = talk?.messages[indexPath.row].user == talk?.owner ? true : false
         return cell
     }
     

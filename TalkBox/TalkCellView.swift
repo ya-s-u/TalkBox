@@ -4,7 +4,6 @@ class TalkCellView: UITableViewCell {
     
     var talk: Talk? {
         didSet {
-//            print(talk)
         }
     }
     

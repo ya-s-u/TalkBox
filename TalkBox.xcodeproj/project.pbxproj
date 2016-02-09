@@ -24,7 +24,6 @@
 		5A6AA6811C5E5ECD00FC1220 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6AA6801C5E5ECD00FC1220 /* MessageCell.xib */; };
 		5A6AA6831C5E5F4400FC1220 /* MessageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA6821C5E5F4400FC1220 /* MessageCellView.swift */; };
 		5A6AA6851C5E6D6A00FC1220 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA6841C5E6D6A00FC1220 /* Notification.swift */; };
-		5A6AA68C1C610E4F00FC1220 /* ScrollIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA68B1C610E4F00FC1220 /* ScrollIndicatorView.swift */; };
 		5ABC2EF51C53C4AD0080B303 /* iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF41C53C4AD0080B303 /* iCloud.swift */; };
 		5ABC2EF71C53E19D0080B303 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */; };
 		5ABC2EF91C53F3970080B303 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC2EF81C53F3970080B303 /* ProgressView.swift */; };
@@ -53,7 +52,6 @@
 		5A6AA6801C5E5ECD00FC1220 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		5A6AA6821C5E5F4400FC1220 /* MessageCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCellView.swift; sourceTree = "<group>"; };
 		5A6AA6841C5E6D6A00FC1220 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
-		5A6AA68B1C610E4F00FC1220 /* ScrollIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollIndicatorView.swift; sourceTree = "<group>"; };
 		5ABC2EF41C53C4AD0080B303 /* iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloud.swift; sourceTree = "<group>"; };
 		5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
 		5ABC2EF81C53F3970080B303 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 				5ABC2EF81C53F3970080B303 /* ProgressView.swift */,
 				5A6AA67E1C5DD12700FC1220 /* TalkCellView.swift */,
 				5A6AA6821C5E5F4400FC1220 /* MessageCellView.swift */,
-				5A6AA68B1C610E4F00FC1220 /* ScrollIndicatorView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -328,7 +325,6 @@
 				5A1383781C4333000005223F /* Talk.swift in Sources */,
 				5A13837A1C43330E0005223F /* Message.swift in Sources */,
 				5A6AA6851C5E6D6A00FC1220 /* Notification.swift in Sources */,
-				5A6AA68C1C610E4F00FC1220 /* ScrollIndicatorView.swift in Sources */,
 				5A6AA67D1C5DAA5300FC1220 /* UIColor+.swift in Sources */,
 				5ABC2EF71C53E19D0080B303 /* ImportViewController.swift in Sources */,
 				5A6AA6791C5CB8C700FC1220 /* SettingViewController.swift in Sources */,

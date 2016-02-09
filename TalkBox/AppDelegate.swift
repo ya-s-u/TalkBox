@@ -12,7 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             print("iCloud is not available")
         }
-        
         return true
     }
     
