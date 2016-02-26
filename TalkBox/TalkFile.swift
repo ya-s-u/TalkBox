@@ -1,6 +1,5 @@
 import Foundation
 import Regex
-import SwiftDate
 import SwiftFilePath
 
 @objc protocol TalkFileDelegate {
@@ -37,7 +36,7 @@ class TalkFile {
         
         var currentDate = ""
         var multipleLine = false
-        var multipleMessage = Message()
+        var multipleMessage = Message.create()
         
         var i = 0
         let size = self.contents.lines.count
@@ -55,10 +54,10 @@ class TalkFile {
             // start multiple lines
             if let matches = Regex("^(\\d{2}:\\d{2})\\t(.+)\\t\"(.+)").match(line)?.captures {
                 multipleLine = true
-                multipleMessage = Message()
-                multipleMessage.created = "\(currentDate) \(matches[0]!)".toDate(DateFormat.Custom("yyyy/MM/dd HH:mm"))!
+                multipleMessage = Message.create()
                 multipleMessage.user = matches[1]!
                 multipleMessage.text = (matches[2]!+"\n")
+                multipleMessage.createdAt(currentDate, time: matches[0]!)
                 continue
             }
             
@@ -99,8 +98,10 @@ class TalkFile {
             
             // message
             if let matches = Regex("^(\\d{2}:\\d{2})\\t(.+)\\t(.+)").match(line)?.captures {
-                let datetime = "\(currentDate) \(matches[0]!)".toDate(DateFormat.Custom("yyyy/MM/dd HH:mm"))!
-                let message = Message(value: ["user": matches[1]!, "text": matches[2]!, "created": datetime])
+                let message = Message.create()
+                message.user = matches[1]!
+                message.text = matches[2]!
+                message.createdAt(currentDate, time: matches[0]!)
                 talk.messages.append(message)
                 talk.count++
                 if users[message.user] == nil {
@@ -113,8 +114,10 @@ class TalkFile {
             
             // system message
             if let matches = Regex("^(\\d{2}:\\d{2})\\t(.+)").match(line)?.captures {
-                let datetime = "\(currentDate) \(matches[0]!)".toDate(DateFormat.Custom("yyyy/MM/dd HH:mm"))!
-                let message = Message(value: ["user": "", "text": matches[1]!, "created": datetime])
+                let message = Message.create()
+                message.user = ""
+                message.text = matches[1]!
+                message.createdAt(currentDate, time: matches[0]!)
                 talk.messages.append(message)
                 continue
             }
