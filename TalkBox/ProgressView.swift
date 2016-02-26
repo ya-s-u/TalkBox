@@ -2,7 +2,7 @@ import UIKit
 import Async
 
 class ProgressView: UIView {
-    @IBOutlet weak var progress: UILabel!
+    @IBOutlet weak private var progress: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

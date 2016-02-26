@@ -1,7 +1,7 @@
 import UIKit
 
 class MessageCellView: UITableViewCell {
-    @IBOutlet weak var body: UILabel!
+    @IBOutlet private weak var body: UILabel!
     
     var message: Message? {
         didSet {

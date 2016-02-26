@@ -2,9 +2,10 @@ import UIKit
 import Async
 
 class ImportViewController : UIViewController, TalkFileDelegate {
+
     var path = NSURL()
-    var file: TalkFile!
-    var progressView: ProgressView!
+    private var file: TalkFile!
+    private var progressView: ProgressView!
     
     override func viewDidLoad() {
         file = TalkFile(path: self.path)
@@ -34,7 +35,7 @@ class ImportViewController : UIViewController, TalkFileDelegate {
         self.progressView.updateProgress(percentage)
     }
     
-    func showCompleteAlert() {
+    private func showCompleteAlert() {
         let alertController = UIAlertController(title: "完了しました!", message: "トークのインポートが完了しました。", preferredStyle: .Alert)
         let defaultAction = UIAlertAction(title: "OK", style: .Default) {
             action in

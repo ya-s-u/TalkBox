@@ -52,7 +52,7 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (talk?.messages.count)!
+        return talk?.messages.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
