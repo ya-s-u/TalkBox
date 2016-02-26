@@ -19,8 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         if sourceApplication == "jp.naver.line" {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let destination = storyboard.instantiateViewControllerWithIdentifier("Import") as! ImportViewController
-            destination.path = url
+            let destination = storyboard.instantiateViewControllerWithIdentifier("Import")
+            if let destination = destination as? ImportViewController {
+                destination.path = url
+            }
             self.window!.rootViewController!.presentViewController(destination, animated: true, completion: nil)
         } else {
             print("applications that do not support")

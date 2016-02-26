@@ -9,9 +9,9 @@ class MessageCellView: UITableViewCell {
         }
     }
     
-    var is_owner = false {
+    var isOwner = false {
         didSet {
-            if is_owner {
+            if isOwner {
                 backgroundColor = UIColor.blueColor()
             }
         }
@@ -19,7 +19,7 @@ class MessageCellView: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .None
+        selectionStyle = .None
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

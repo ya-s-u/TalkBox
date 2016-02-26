@@ -3,6 +3,7 @@ import Async
 
 class HomeTableViewController: UITableViewController, UINavigationControllerDelegate, NotificationDelegate {
 
+    // MARK: - Outlets
     @IBOutlet weak private var settingBtn: UIBarButtonItem!
 
     @IBOutlet weak private var backupBtn: UIBarButtonItem! {
@@ -11,16 +12,30 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
         }
     }
 
+    // MARK: - Properties
     private var talks: [Talk] = []
-    
+
+    // MARK: - View life cycle
     override func viewDidLoad() {
         Notification.shared.delegate = self
         refreshHome()
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch segue.destinationViewController {
+        case let viewCtl as TalkViewController:
+            if let cell = sender as?TalkCellView {
+                viewCtl.talk = cell.talk
+            }
+        default:
+            break
+        }
+    }
+
+    // MARK: - Publics
     func refreshHome() {
         talks = Talk.findAll()
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     @IBAction func setting(sender: AnyObject) {
@@ -35,17 +50,6 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
         Async.main(after: 3) {
             self.backupBtn.enabled = true
             self.backupBtn.title = "アップロード"
-        }
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        switch segue.identifier! {
-        case "showTalk":
-            let cell = sender as! TalkCellView
-            let vc = segue.destinationViewController as! TalkViewController
-            vc.talk = cell.talk
-        default:
-            break
         }
     }
 }

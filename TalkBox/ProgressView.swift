@@ -6,10 +6,12 @@ class ProgressView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let view = NSBundle.mainBundle().loadNibNamed("Progress", owner: self, options: nil).first as! ProgressView
-        view.frame = frame
-        view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
-        addSubview(view)
+        let view = NSBundle.mainBundle().loadNibNamed("Progress", owner: self, options: nil).first
+        if let view = view as? ProgressView {
+            view.frame = frame
+            view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+            addSubview(view)
+        }
     }
     
     required init(coder aDecoder: NSCoder) {

@@ -3,7 +3,11 @@ import Async
 import SwiftDate
 
 class TalkViewController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+
+    // MARK: - Outlets
     @IBOutlet weak private var tableView: UITableView!
+
+    // MARK: - Properties
     private var slider = UISlider()
 
     var talk: Talk? {
@@ -12,6 +16,7 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
         }
     }
 
+    // MARK: - View life cycle
     override func viewDidLoad() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -47,6 +52,7 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
         self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: false)
     }
 
+    // MARK: - Publics
     func scrollViewDidScroll(scrollView: UIScrollView) {
         slider.value = Float((scrollView.contentOffset.y+64) / (tableView.contentSize.height-tableView.frame.height+64))
     }
@@ -63,7 +69,7 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath)
         if let cell = cell as? MessageCellView {
             cell.message = talk?.messages[indexPath.row]
-            cell.is_owner = talk?.messages[indexPath.row].user == talk?.owner ? true : false
+            cell.isOwner = talk?.messages[indexPath.row].user == talk?.owner ? true : false
         }
         return cell
     }
@@ -71,5 +77,4 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         print(indexPath.row)
     }
-
 }

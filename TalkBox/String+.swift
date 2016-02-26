@@ -1,7 +1,6 @@
 import Foundation
 
 extension String {
-    
     var lines: [String] {
         var lines = [String]()
         self.enumerateLines { (line, stop) -> () in
@@ -9,5 +8,4 @@ extension String {
         }
         return lines
     }
-    
 }

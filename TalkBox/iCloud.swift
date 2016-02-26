@@ -2,7 +2,6 @@ import Foundation
 import SwiftFilePath
 
 class iCloud {
-    
     class func available() -> Bool {
         if let _ = NSFileManager.defaultManager().ubiquityIdentityToken {
             return true

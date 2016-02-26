@@ -2,7 +2,8 @@ import UIKit
 import Eureka
 
 class SettingViewController: FormViewController {
-    
+
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         form +++ Section("Custom cells")
@@ -12,9 +13,9 @@ class SettingViewController: FormViewController {
                 $0.placeholder = "ここに書いてね"
             }
     }
-    
+
+    // MARK: - Publics
     @IBAction func close(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
-    
 }
