@@ -1,25 +1,21 @@
 import UIKit
 import Async
-import RealmSwift
 
 class HomeTableViewController: UITableViewController, UINavigationControllerDelegate, NotificationDelegate {
-    @IBOutlet weak var settingBtn: UIBarButtonItem!
-    @IBOutlet weak var backupBtn: UIBarButtonItem!
-    
-    let realm = try! Realm()
-    var talks: [Talk] = []
+    @IBOutlet weak private var settingBtn: UIBarButtonItem!
+    @IBOutlet weak private var backupBtn: UIBarButtonItem!
+
+    private var talks: [Talk] = []
     
     override func viewDidLoad() {
         Notification.shared.delegate = self
         refreshHome()
-        
-        // backup button
+
         if !iCloud.available() { backupBtn.enabled = false }
     }
-    
+
     func refreshHome() {
-        let results = realm.objects(Talk).sorted("updated", ascending: false)
-        talks = results.map { $0 }
+        talks = Talk.findAll()
         self.tableView.reloadData()
     }
     
@@ -43,6 +39,7 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
         case "showTalk":
             let cell = sender as! TalkCellView
             let vc = segue.destinationViewController as! TalkViewController
+//            vc.id = cell.talk?.id
             vc.talk = cell.talk
         default:
             break
@@ -52,9 +49,8 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
 }
 
 extension HomeTableViewController {
-    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return talks.count
+        return talks.count ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

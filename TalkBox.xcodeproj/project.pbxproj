@@ -102,9 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				5ABC2EF61C53E19D0080B303 /* ImportViewController.swift */,
-				5A6AA6781C5CB8C700FC1220 /* SettingViewController.swift */,
-				5A6AA6761C5CAE9700FC1220 /* TalkViewController.swift */,
 				5A6AA6741C5BFBBC00FC1220 /* HomeTableViewController.swift */,
+				5A6AA6761C5CAE9700FC1220 /* TalkViewController.swift */,
+				5A6AA6781C5CB8C700FC1220 /* SettingViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";

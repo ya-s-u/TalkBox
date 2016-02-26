@@ -1,7 +1,6 @@
 import Foundation
 import Regex
 import SwiftDate
-import RealmSwift
 import SwiftFilePath
 
 @objc protocol TalkFileDelegate {
@@ -32,7 +31,7 @@ class TalkFile {
     }
     
     func parse() -> Talk {
-        let talk = Talk()
+        let talk = Talk.create()
         
         var users: [String: Int] = [:]
         
@@ -57,9 +56,9 @@ class TalkFile {
             if let matches = Regex("^(\\d{2}:\\d{2})\\t(.+)\\t\"(.+)").match(line)?.captures {
                 multipleLine = true
                 multipleMessage = Message()
-                multipleMessage.created = "\(currentDate) \(matches[0])".toDate(DateFormat.Custom("yyyy/MM/dd HH:mm"))!
-                multipleMessage.user = matches[1]
-                multipleMessage.text = (matches[2]+"\n")
+                multipleMessage.created = "\(currentDate) \(matches[0]!)".toDate(DateFormat.Custom("yyyy/MM/dd HH:mm"))!
+                multipleMessage.user = matches[1]!
+                multipleMessage.text = (matches[2]!+"\n")
                 continue
             }
             
@@ -68,7 +67,7 @@ class TalkFile {
                 // finish
                 if let matches = Regex("^(.*)\"").match(line)?.captures {
                     multipleLine = false
-                    multipleMessage.text += matches[0]
+                    multipleMessage.text += matches[0]!
                     talk.messages.append(multipleMessage)
                     talk.count++
                     if users[multipleMessage.user] == nil {
@@ -81,27 +80,27 @@ class TalkFile {
                 
                 // continue
                 if let matches = Regex("^(.*)").match(line)?.captures {
-                    multipleMessage.text += (matches[0]+"\n")
+                    multipleMessage.text += (matches[0]!+"\n")
                     continue
                 }
             }
             
             // title
             if let matches = Regex("^\\[LINE\\] (.+?)トーク履歴").match(line)?.captures {
-                talk.title = "\(matches[0])トーク"
+                talk.title = "\(matches[0]!)トーク"
                 continue
             }
             
             // date
             if let matches = Regex("^(\\d{4}\\/\\d{2}\\/\\d{2})\\(.{1}\\)").match(line)?.captures {
-                currentDate = matches[0]
+                currentDate = matches[0]!
                 continue
             }
             
             // message
             if let matches = Regex("^(\\d{2}:\\d{2})\\t(.+)\\t(.+)").match(line)?.captures {
-                let datetime = "\(currentDate) \(matches[0])".toDate(DateFormat.Custom("yyyy/MM/dd HH:mm"))!
-                let message = Message(value: ["user": matches[1], "text": matches[2], "created": datetime])
+                let datetime = "\(currentDate) \(matches[0]!)".toDate(DateFormat.Custom("yyyy/MM/dd HH:mm"))!
+                let message = Message(value: ["user": matches[1]!, "text": matches[2]!, "created": datetime])
                 talk.messages.append(message)
                 talk.count++
                 if users[message.user] == nil {
@@ -114,8 +113,8 @@ class TalkFile {
             
             // system message
             if let matches = Regex("^(\\d{2}:\\d{2})\\t(.+)").match(line)?.captures {
-                let datetime = "\(currentDate) \(matches[0])".toDate(DateFormat.Custom("yyyy/MM/dd HH:mm"))!
-                let message = Message(value: ["user": "", "text": matches[1], "created": datetime])
+                let datetime = "\(currentDate) \(matches[0]!)".toDate(DateFormat.Custom("yyyy/MM/dd HH:mm"))!
+                let message = Message(value: ["user": "", "text": matches[1]!, "created": datetime])
                 talk.messages.append(message)
                 continue
             }
@@ -128,10 +127,7 @@ class TalkFile {
         // TODO:
         
         // write
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(talk)
-        }
+        talk.save()
         
         return talk
     }

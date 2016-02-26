@@ -1,12 +1,12 @@
 PODS:
-  - AsyncSwift (1.6.4)
+  - AsyncSwift (1.7.2)
   - Eureka (1.3.1)
-  - Realm (0.97.0):
-    - Realm/Headers (= 0.97.0)
-  - Realm/Headers (0.97.0)
-  - RealmSwift (0.97.0):
-    - Realm (= 0.97.0)
-  - STRegex (0.2.6)
+  - Realm (0.98.2):
+    - Realm/Headers (= 0.98.2)
+  - Realm/Headers (0.98.2)
+  - RealmSwift (0.98.2):
+    - Realm (= 0.98.2)
+  - STRegex (0.3.1)
   - SwiftDate (2.0.2)
   - SwiftFilePath (0.0.6)
 
@@ -19,11 +19,11 @@ DEPENDENCIES:
   - SwiftFilePath
 
 SPEC CHECKSUMS:
-  AsyncSwift: 3c90beed237324f1b57e1f1c414dc5501985d208
+  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
   Eureka: 10df73e578ed8ec1f30c8fda5b4ffc8739786b74
-  Realm: b498a6fb9d288b171ff98d0e2d4384c295be8990
-  RealmSwift: d014810dec75c9a3f1a33926d2dabfed855c582c
-  STRegex: 42baaef0406dd90bfa32e19c202a0c89075809b4
+  Realm: 88a147fe04b8f07191a676b15c779b2b448991de
+  RealmSwift: 9907c7415b3e19ef2ab9f89878fc890f03f93aea
+  STRegex: 4c27ffabad2c8b603f050d28e6c794eb72a13608
   SwiftDate: b4f4d0962afe48365ad2800c9850a6626deb9359
   SwiftFilePath: 52c1db61018e0a3941191eb71002cb5cbdaa39e7
 

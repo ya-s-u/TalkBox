@@ -3,16 +3,27 @@ import Async
 import SwiftDate
 
 class TalkViewController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
-    @IBOutlet weak var tableView: UITableView!
-    var slider = UISlider()
-    
+    @IBOutlet weak private var tableView: UITableView!
+    private var slider = UISlider()
+
     var talk: Talk? {
         didSet {
             self.title = talk?.title
         }
     }
-    
+
+//    private var talk: Talk?
+//    var id: String? {
+//        didSet {
+////            self.talk = Talk.find(id!)
+////            self.title = talk?.title
+////            self.tableView.reloadData()
+//
+//        }
+//    }
+
     override func viewDidLoad() {
+//        talk = Talk.find(id!)
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
@@ -37,12 +48,12 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
         self.view.addSubview(slider)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        let row = self.tableView.numberOfRowsInSection(0) - 1
-        let indexPath = NSIndexPath(forRow: row, inSection: 0)
-        self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: false)
-    }
-    
+//    override func viewWillAppear(animated: Bool) {
+//        let row = self.tableView.numberOfRowsInSection(0) - 1
+//        let indexPath = NSIndexPath(forRow: row, inSection: 0)
+//        self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: false)
+//    }
+
     func scrollViewDidScroll(scrollView: UIScrollView) {
         slider.value = Float((scrollView.contentOffset.y+64) / (tableView.contentSize.height-tableView.frame.height+64))
     }

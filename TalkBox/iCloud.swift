@@ -33,6 +33,7 @@ class iCloud {
     }
     
     private class func removeInbox() {
+        Path.documentsDir["default.realm"].remove()
         let result = Path.documentsDir["Inbox"].remove()
         if result.isFailure { print(result.error) }
     }
