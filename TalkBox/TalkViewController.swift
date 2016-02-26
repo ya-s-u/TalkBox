@@ -36,17 +36,21 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
         slider.addTarget(self, action: "onChangeValueMySlider:", forControlEvents: UIControlEvents.ValueChanged)
         self.view.addSubview(slider)
     }
+
+    deinit {
+        tableView.delegate = nil
+    }
     
-//    override func viewWillAppear(animated: Bool) {
-//        let row = self.tableView.numberOfRowsInSection(0) - 1
-//        let indexPath = NSIndexPath(forRow: row, inSection: 0)
-//        self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: false)
-//    }
+    override func viewWillAppear(animated: Bool) {
+        let row = self.tableView.numberOfRowsInSection(0) - 1
+        let indexPath = NSIndexPath(forRow: row, inSection: 0)
+        self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: false)
+    }
 
     func scrollViewDidScroll(scrollView: UIScrollView) {
         slider.value = Float((scrollView.contentOffset.y+64) / (tableView.contentSize.height-tableView.frame.height+64))
     }
-    
+
     func onChangeValueMySlider(sender: UISlider){
         tableView.contentOffset.y = (tableView.contentSize.height-tableView.frame.height+64) * CGFloat(sender.value) - 64
     }
@@ -56,9 +60,11 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCellView
-        cell.message = talk?.messages[indexPath.row]
-        cell.is_owner = talk?.messages[indexPath.row].user == talk?.owner ? true : false
+        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath)
+        if let cell = cell as? MessageCellView {
+            cell.message = talk?.messages[indexPath.row]
+            cell.is_owner = talk?.messages[indexPath.row].user == talk?.owner ? true : false
+        }
         return cell
     }
     
