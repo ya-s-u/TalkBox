@@ -12,18 +12,7 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
         }
     }
 
-//    private var talk: Talk?
-//    var id: String? {
-//        didSet {
-////            self.talk = Talk.find(id!)
-////            self.title = talk?.title
-////            self.tableView.reloadData()
-//
-//        }
-//    }
-
     override func viewDidLoad() {
-//        talk = Talk.find(id!)
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")

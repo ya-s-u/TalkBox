@@ -39,7 +39,6 @@ class HomeTableViewController: UITableViewController, UINavigationControllerDele
         case "showTalk":
             let cell = sender as! TalkCellView
             let vc = segue.destinationViewController as! TalkViewController
-//            vc.id = cell.talk?.id
             vc.talk = cell.talk
         default:
             break
