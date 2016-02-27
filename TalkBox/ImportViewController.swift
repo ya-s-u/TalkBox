@@ -48,13 +48,10 @@ class ImportViewController : UIViewController, TalkFileDelegate {
     }
 
     private func showCompleteAlert() {
-        let alertController = UIAlertController(title: "完了しました!", message: "トークのインポートが完了しました。", preferredStyle: .Alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .Default) {
-            action in
-                self.dismissViewControllerAnimated(true, completion: nil)
-                Notification.shared.refreshHome()
-        }
-        alertController.addAction(defaultAction)
-        presentViewController(alertController, animated: true, completion: nil)
+        let alert = UIAlertController.importCompleteAlert({
+            self.dismissViewControllerAnimated(true, completion: nil)
+            Notification.shared.refreshHome()
+        })
+        presentViewController(alert, animated: true, completion: nil)
     }
 }

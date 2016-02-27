@@ -16,6 +16,7 @@
 		5A5336D61C2242010008BBF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D51C2242010008BBF4 /* Assets.xcassets */; };
 		5A5336D91C2242010008BBF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5336D71C2242010008BBF4 /* LaunchScreen.storyboard */; };
 		5A5336EC1C2257910008BBF4 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5336EB1C2257910008BBF4 /* String+.swift */; };
+		5A6095491C81506000549A12 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6095481C81506000549A12 /* UIAlertController+.swift */; };
 		5A6AA6751C5BFBBC00FC1220 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA6741C5BFBBC00FC1220 /* HomeTableViewController.swift */; };
 		5A6AA6771C5CAE9700FC1220 /* TalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA6761C5CAE9700FC1220 /* TalkViewController.swift */; };
 		5A6AA6791C5CB8C700FC1220 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA6781C5CB8C700FC1220 /* SettingViewController.swift */; };
@@ -44,6 +45,7 @@
 		5A5336D81C2242010008BBF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A5336DA1C2242010008BBF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A5336EB1C2257910008BBF4 /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		5A6095481C81506000549A12 /* UIAlertController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		5A6AA6741C5BFBBC00FC1220 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		5A6AA6761C5CAE9700FC1220 /* TalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkViewController.swift; sourceTree = "<group>"; };
 		5A6AA6781C5CB8C700FC1220 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				5A5336EB1C2257910008BBF4 /* String+.swift */,
+				5A6095481C81506000549A12 /* UIAlertController+.swift */,
 				5A6AA67C1C5DAA5300FC1220 /* UIColor+.swift */,
 			);
 			name = Extensions;
@@ -321,6 +324,7 @@
 				5A6AA67F1C5DD12700FC1220 /* TalkCellView.swift in Sources */,
 				5ABC2EF91C53F3970080B303 /* ProgressView.swift in Sources */,
 				5A6AA6831C5E5F4400FC1220 /* MessageCellView.swift in Sources */,
+				5A6095491C81506000549A12 /* UIAlertController+.swift in Sources */,
 				5A5336CF1C2242010008BBF4 /* AppDelegate.swift in Sources */,
 				5A1383781C4333000005223F /* Talk.swift in Sources */,
 				5A13837A1C43330E0005223F /* Message.swift in Sources */,
