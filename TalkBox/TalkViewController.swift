@@ -18,28 +18,8 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
 
     // MARK: - View life cycle
     override func viewDidLoad() {
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
-        self.tableView.estimatedRowHeight = 90
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.showsVerticalScrollIndicator = false
-        
-        let _ = (self.navigationController?.navigationBar.frame.height)! + UIApplication.sharedApplication().statusBarFrame.height
-        
-        let width:CGFloat = self.view.frame.size.height-100
-        let height:CGFloat = 30
-        let x:CGFloat = (self.view.frame.size.width-width)/2
-        let y:CGFloat = self.view.frame.size.height/2
-        
-        slider.frame = CGRectMake(x, y, width, height)
-        slider.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2.0))
-        slider.backgroundColor = UIColor.redColor()
-        slider.minimumValue = 0.0
-        slider.maximumValue = 1.0
-        slider.value = slider.maximumValue
-        slider.addTarget(self, action: "onChangeValueMySlider:", forControlEvents: UIControlEvents.ValueChanged)
-        self.view.addSubview(slider)
+        setupTableView()
+        setupSlider()
     }
 
     deinit {
@@ -55,10 +35,6 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
     // MARK: - Publics
     func scrollViewDidScroll(scrollView: UIScrollView) {
         slider.value = Float((scrollView.contentOffset.y+64) / (tableView.contentSize.height-tableView.frame.height+64))
-    }
-
-    func onChangeValueMySlider(sender: UISlider){
-        tableView.contentOffset.y = (tableView.contentSize.height-tableView.frame.height+64) * CGFloat(sender.value) - 64
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,5 +52,37 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
     
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         print(indexPath.row)
+    }
+
+    // MARK: - Privates
+    private func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
+        tableView.estimatedRowHeight = 90
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.showsVerticalScrollIndicator = false
+    }
+
+    private func setupSlider() {
+//        let _ = (self.navigationController?.navigationBar.frame.height)! + UIApplication.sharedApplication().statusBarFrame.height
+
+        let width: CGFloat = self.view.frame.size.height-100
+        let height: CGFloat = 30
+        let x: CGFloat = (self.view.frame.size.width-width)/2
+        let y: CGFloat = self.view.frame.size.height/2
+
+        slider.frame = CGRectMake(x, y, width, height)
+        slider.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2.0))
+        slider.backgroundColor = UIColor.redColor()
+        slider.minimumValue = 0.0
+        slider.maximumValue = 1.0
+        slider.value = slider.maximumValue
+        slider.addTarget(self, action: "onChangeValueMySlider:", forControlEvents: UIControlEvents.ValueChanged)
+        view.addSubview(slider)
+    }
+
+    private func onChangeValueMySlider(sender: UISlider){
+        tableView.contentOffset.y = (tableView.contentSize.height-tableView.frame.height+64) * CGFloat(sender.value) - 64
     }
 }
