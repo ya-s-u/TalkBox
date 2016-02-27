@@ -64,18 +64,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="izC-vg-HL2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YVY-Dn-ceP">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="Lcb-bf-oNG"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem title="情報" image="img_slider" id="fzc-Cv-QXg"/>
+                                    <tabBarItem title="お気に入り" image="img_slider" id="xRq-mP-jtp"/>
+                                    <tabBarItem title="カレンダー" image="img_slider" id="0Ms-u3-vSx"/>
+                                    <tabBarItem title="設定" image="img_slider" id="sOD-8w-KQM"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="YVY-Dn-ceP" firstAttribute="top" secondItem="izC-vg-HL2" secondAttribute="bottom" id="75r-vR-BhE"/>
                             <constraint firstAttribute="trailing" secondItem="izC-vg-HL2" secondAttribute="trailing" id="CFU-hI-asx"/>
                             <constraint firstItem="izC-vg-HL2" firstAttribute="top" secondItem="jrb-EE-sbb" secondAttribute="bottom" constant="-64" id="EhB-p9-XEK"/>
+                            <constraint firstAttribute="trailing" secondItem="YVY-Dn-ceP" secondAttribute="trailing" id="Mhd-JK-rfC"/>
                             <constraint firstItem="izC-vg-HL2" firstAttribute="leading" secondItem="aap-k1-5Yq" secondAttribute="leading" id="R1R-zd-88t"/>
+                            <constraint firstItem="YVY-Dn-ceP" firstAttribute="leading" secondItem="aap-k1-5Yq" secondAttribute="leading" id="WqA-qH-T34"/>
                             <constraint firstItem="AoT-7O-Pnp" firstAttribute="top" secondItem="izC-vg-HL2" secondAttribute="bottom" id="bKt-Ui-eHA"/>
+                            <constraint firstItem="AoT-7O-Pnp" firstAttribute="top" secondItem="YVY-Dn-ceP" secondAttribute="bottom" id="lru-yI-vzp"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bKt-Ui-eHA"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="izC-vg-HL2" id="dmP-jy-aIG"/>
@@ -200,4 +222,7 @@
             <point key="canvasLocation" x="1095" y="314"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img_slider" width="69" height="41"/>
+    </resources>
 </document>

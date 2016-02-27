@@ -70,12 +70,10 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
 
     private func setupSlider() {
-        let barHeight = (navigationController?.navigationBar.frame.height)! + UIApplication.sharedApplication().statusBarFrame.height
-
-        let width: CGFloat = view.frame.size.height - barHeight
+        let width: CGFloat = view.frame.size.height - 64 - 49
         let height: CGFloat = 20
         let x: CGFloat = (view.frame.size.width-width)/2 + view.frame.size.width/2 - height
-        let y: CGFloat = view.frame.size.height/2 + barHeight/4
+        let y: CGFloat = view.frame.size.height/2 + height - 49/2
 
         slider.frame = CGRectMake(x, y, width, height)
         slider.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2.0))
