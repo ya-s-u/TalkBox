@@ -18,6 +18,7 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
 
     // MARK: - View life cycle
     override func viewDidLoad() {
+        view.backgroundColor = UIColor.hex("F9F5F0", alpha: 1)
         setupTableView()
         setupSlider()
     }
