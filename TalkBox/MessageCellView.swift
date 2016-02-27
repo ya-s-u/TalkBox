@@ -12,7 +12,7 @@ class MessageCellView: UITableViewCell {
     var isOwner = false {
         didSet {
             if isOwner {
-                backgroundColor = UIColor.blueColor()
+//                backgroundColor = UIColor.blueColor()
             }
         }
     }

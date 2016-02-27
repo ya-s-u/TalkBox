@@ -36,6 +36,10 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
     func scrollViewDidScroll(scrollView: UIScrollView) {
         slider.value = Float((scrollView.contentOffset.y+64) / (tableView.contentSize.height-tableView.frame.height+64))
     }
+
+    func onChangeValueMySlider(sender: UISlider){
+        tableView.contentOffset.y = (tableView.contentSize.height-tableView.frame.height+64) * CGFloat(sender.value) - 64
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return talk?.messages.count ?? 0
@@ -65,24 +69,22 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
 
     private func setupSlider() {
-//        let _ = (self.navigationController?.navigationBar.frame.height)! + UIApplication.sharedApplication().statusBarFrame.height
+        let barHeight = (navigationController?.navigationBar.frame.height)! + UIApplication.sharedApplication().statusBarFrame.height
 
-        let width: CGFloat = self.view.frame.size.height-100
-        let height: CGFloat = 30
-        let x: CGFloat = (self.view.frame.size.width-width)/2
-        let y: CGFloat = self.view.frame.size.height/2
+        let width: CGFloat = view.frame.size.height - barHeight
+        let height: CGFloat = 20
+        let x: CGFloat = (view.frame.size.width-width)/2 + view.frame.size.width/2 - height
+        let y: CGFloat = view.frame.size.height/2 + barHeight/4
 
         slider.frame = CGRectMake(x, y, width, height)
         slider.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2.0))
-        slider.backgroundColor = UIColor.redColor()
+        slider.minimumTrackTintColor = UIColor.clearColor()
+        slider.maximumTrackTintColor = UIColor.clearColor()
+        slider.setThumbImage(UIImage(named: "img_slider"), forState: .Normal)
         slider.minimumValue = 0.0
         slider.maximumValue = 1.0
         slider.value = slider.maximumValue
         slider.addTarget(self, action: "onChangeValueMySlider:", forControlEvents: UIControlEvents.ValueChanged)
         view.addSubview(slider)
-    }
-
-    private func onChangeValueMySlider(sender: UISlider){
-        tableView.contentOffset.y = (tableView.contentSize.height-tableView.frame.height+64) * CGFloat(sender.value) - 64
     }
 }
