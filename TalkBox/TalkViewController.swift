@@ -18,7 +18,6 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
 
     // MARK: - View life cycle
     override func viewDidLoad() {
-        view.backgroundColor = UIColor.hex("F9F5F0", alpha: 1)
         setupTableView()
         setupSlider()
     }
@@ -67,6 +66,7 @@ class TalkViewController: UIViewController, UINavigationControllerDelegate, UITa
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.showsVerticalScrollIndicator = false
+        tableView.backgroundColor = UIColor.hex("F9F5F0", alpha: 1)
     }
 
     private func setupSlider() {
