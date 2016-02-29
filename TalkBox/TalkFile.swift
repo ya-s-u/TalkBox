@@ -7,15 +7,22 @@ import SwiftFilePath
 }
 
 class TalkFile {
+
+    // MARK: - Properties
     weak var delegate: TalkFileDelegate?
     
     var path = NSURL()
+    var progress = 0
+    var size = 0
+    let talk = Talk.create()
     var contents = String()
-    
+
+    // MARK: - Publics
     init(path: NSURL) {
         do {
             self.path = path
             self.contents = try NSString(contentsOfURL: path, encoding: NSUTF8StringEncoding) as String
+            self.size = contents.lines.count
         } catch {
             print("file open error occured")
         }
@@ -30,108 +37,110 @@ class TalkFile {
     }
     
     func parse() -> Talk {
-        let talk = Talk.create()
-        
-        var users: [String: Int] = [:]
-        
         var currentDate = ""
-        var multipleLine = false
-        var multipleMessage = Message.create()
-        
-        var i = 0
-        let size = self.contents.lines.count
-        var progress = 0
-        
-        for (_, line) in self.contents.lines.enumerate() {
-            
-            // progress
-            let current = Int(Float(i++)/Float(size)*100)
-            if current != progress {
-                progress = current
-                self.delegate?.didChangeProgress!(progress)
-            }
-            
-            // start multiple lines
-            if let matches = Regex("^(\\d{2}:\\d{2})\\t(.+)\\t\"(.+)").match(line)?.captures {
-                multipleLine = true
-                multipleMessage = Message.create()
-                multipleMessage.user = matches[1]!
-                multipleMessage.text = (matches[2]!+"\n")
-                multipleMessage.createdAt(currentDate, time: matches[0]!)
-                continue
-            }
-            
-            // multiple lines
-            if multipleLine {
-                // finish
-                if let matches = Regex("^(.*)\"").match(line)?.captures {
-                    multipleLine = false
-                    multipleMessage.text += matches[0]!
-                    talk.messages.append(multipleMessage)
-                    talk.count++
-                    if users[multipleMessage.user] == nil {
-                        users[multipleMessage.user] = 0
-                    } else {
-                        users[multipleMessage.user] = users[multipleMessage.user]! + 1
-                    }
-                    continue
+
+        for (i, line) in contents.lines.enumerate() {
+            updateProgress(i)
+
+            switch line {
+
+            // Title
+            case Regex("^\\[LINE\\] (.+?)トーク履歴"):
+                if let title = Regex.lastMatch?.captures[0] {
+                    talk.title = "\(title)トーク"
                 }
-                
-                // continue
-                if let matches = Regex("^(.*)").match(line)?.captures {
-                    multipleMessage.text += (matches[0]!+"\n")
-                    continue
+
+            // Date
+            case Regex("^(\\d{4}\\/\\d{2}\\/\\d{2})\\(.{1}\\)"):
+                if let date = Regex.lastMatch?.captures[0] {
+                    currentDate = date
                 }
-            }
-            
-            // title
-            if let matches = Regex("^\\[LINE\\] (.+?)トーク履歴").match(line)?.captures {
-                talk.title = "\(matches[0]!)トーク"
-                continue
-            }
-            
-            // date
-            if let matches = Regex("^(\\d{4}\\/\\d{2}\\/\\d{2})\\(.{1}\\)").match(line)?.captures {
-                currentDate = matches[0]!
-                continue
-            }
-            
-            // message
-            if let matches = Regex("^(\\d{2}:\\d{2})\\t(.+)\\t(.+)").match(line)?.captures {
+
+            // Multiline Message
+            case Regex("^(\\d{2}:\\d{2})\\t(.+)\\t\"(.+)"):
+                multiline(i, currentDate: currentDate)
+
+            // Message
+            case Regex("^(\\d{2}:\\d{2})\\t(.+)\\t(.+)"):
                 let message = Message.create()
-                message.user = matches[1]!
-                message.text = matches[2]!
-                message.createdAt(currentDate, time: matches[0]!)
-                talk.messages.append(message)
-                talk.count++
-                if users[message.user] == nil {
-                    users[message.user] = 0
-                } else {
-                    users[message.user] = users[message.user]! + 1
+                if let user = Regex.lastMatch?.captures[1] {
+                    message.user = user
                 }
-                continue
-            }
-            
-            // system message
-            if let matches = Regex("^(\\d{2}:\\d{2})\\t(.+)").match(line)?.captures {
+                if let text = Regex.lastMatch?.captures[2] {
+                    message.text = text
+                }
+                if let time = Regex.lastMatch?.captures[0] {
+                    message.createdAt(currentDate, time: time)
+                }
+                talk.add(message)
+
+            // System Message
+            case Regex("^(\\d{2}:\\d{2})\\t(.+)"):
                 let message = Message.create()
                 message.user = ""
-                message.text = matches[1]!
-                message.createdAt(currentDate, time: matches[0]!)
-                talk.messages.append(message)
-                continue
+                if let text = Regex.lastMatch?.captures[1] {
+                    message.text = text
+                }
+                if let time = Regex.lastMatch?.captures[0] {
+                    message.createdAt(currentDate, time: time)
+                }
+                talk.add(message)
+
+            default:
+                break
             }
         }
-        
-        // owner
-        talk.owner = users.first!.0
-        
-        // metas
-        // TODO:
-        
-        // write
+
         talk.save()
-        
         return talk
+    }
+
+    // MARK: - Privates
+    private func updateProgress(current: Int) {
+        let percent = Int(Float(current)/Float(size)*100)
+        if percent != progress {
+            progress = percent
+            self.delegate?.didChangeProgress!(progress)
+        }
+    }
+
+    private func multiline(var i: Int, currentDate: String) {
+        let message = Message.create()
+
+        // first
+        if let line = Regex("^(\\d{2}:\\d{2})\\t(.+)\\t\"(.+)").match(contents.lines[i++]) {
+            if let user = line.captures[1] {
+                message.user = user
+            }
+            if let text = line.captures[2] {
+                message.text = text
+            }
+            if let time = line.captures[0] {
+                message.createdAt(currentDate, time: time)
+            }
+        }
+
+        lines: while(true) {
+            switch contents.lines[i++] {
+
+            // last
+            case Regex("^(.*)\""):
+                if let text = Regex.lastMatch?.captures[0] {
+                    message.text += text
+                }
+                break lines
+
+            // continue
+            case Regex("^(.*)"):
+                if let text = Regex.lastMatch?.captures[0] {
+                    message.text += "\(text)\n"
+                }
+
+            default:
+                break
+            }
+        }
+
+        talk.add(message)
     }
 }
